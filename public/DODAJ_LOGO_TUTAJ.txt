@@ -1,0 +1,7 @@
+Wgraj tutaj plik z logo IK Creative Ads (ten, który przesłałaś na czacie) i nazwij go dokładnie:
+
+logo.png
+
+Komponent src/components/ui/Logo.tsx odwołuje się do "/logo.png" — po dodaniu pliku logo pojawi się automatycznie w nagłówku, menu mobilnym i stopce.
+
+Po dodaniu pliku możesz usunąć ten plik tekstowy.
