@@ -103,22 +103,22 @@ export default function Hero() {
             {/* Rotating ring */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              style={{ willChange: "transform" }}
               className="absolute h-[320px] w-[320px] rounded-full border border-dashed border-gold/20 sm:h-[400px] sm:w-[400px] lg:h-[480px] lg:w-[480px]"
               aria-hidden="true"
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
-              className="absolute h-[260px] w-[260px] rounded-full border border-white/10 sm:h-[330px] sm:w-[330px] lg:h-[390px] lg:w-[390px]"
+              transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+              style={{ willChange: "transform" }}
+              className="absolute hidden sm:block h-[260px] w-[260px] rounded-full border border-white/10 sm:h-[330px] sm:w-[330px] lg:h-[390px] lg:w-[390px]"
               aria-hidden="true"
             />
 
-            {/* Glow behind camera */}
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.08, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(246,217,140,0.45)_0%,rgba(212,169,75,0.1)_60%,transparent_75%)] blur-2xl"
+            {/* Glow behind logo */}
+            <div
+              className="absolute h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(246,217,140,0.35)_0%,rgba(212,169,75,0.08)_60%,transparent_75%)] blur-2xl"
               aria-hidden="true"
             />
 

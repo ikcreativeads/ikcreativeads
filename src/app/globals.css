@@ -122,6 +122,28 @@ body {
   );
 }
 
+/* GPU acceleration for animated elements */
+[data-framer-motion],
+.motion-safe {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduce blur cost on mobile */
+@media (max-width: 768px) {
+  .glass,
+  .glass-strong {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .glow-blob {
+    filter: blur(60px);
+    opacity: 0.6;
+  }
+}
+
 /* Focus visible accessibility */
 a:focus-visible,
 button:focus-visible {
