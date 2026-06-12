@@ -271,9 +271,9 @@ export interface StatItem {
 }
 
 export const STATS: StatItem[] = [
-  { value: 100, suffix: "+", label: "wykonanych materiałów video" },
-  { value: 50, suffix: "+", label: "zadowolonych klientów" },
-  { value: 5, suffix: "M+", label: "wyświetleń wygenerowanych dla klientów" },
+  { value: 30, suffix: "+", label: "wykonanych materiałów video" },
+  { value: 15, suffix: "+", label: "zadowolonych klientów" },
+  { value: 500, suffix: "K+", label: "wyświetleń wygenerowanych dla klientów" },
   { value: 98, suffix: "%", label: "klientów poleca naszą współpracę" },
 ];
 

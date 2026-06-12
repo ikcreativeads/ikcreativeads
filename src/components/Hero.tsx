@@ -82,17 +82,17 @@ export default function Hero() {
               className="mt-12 flex items-center justify-center gap-8 lg:justify-start"
             >
               <div>
-                <p className="font-display text-2xl font-bold text-white">100+</p>
+                <p className="font-display text-2xl font-bold text-white">30+</p>
                 <p className="text-xs text-white/50">materiałów video</p>
               </div>
               <div className="h-10 w-px bg-white/10" />
               <div>
-                <p className="font-display text-2xl font-bold text-white">50+</p>
+                <p className="font-display text-2xl font-bold text-white">15+</p>
                 <p className="text-xs text-white/50">zadowolonych klientów</p>
               </div>
               <div className="h-10 w-px bg-white/10" />
               <div>
-                <p className="font-display text-2xl font-bold text-white">5M+</p>
+                <p className="font-display text-2xl font-bold text-white">500K+</p>
                 <p className="text-xs text-white/50">wyświetleń</p>
               </div>
             </motion.div>
