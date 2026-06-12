@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, TrendingUp } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
-import { PORTFOLIO_ITEMS } from "@/lib/data";
 
 const VIDEO_ITEMS = [
   {
@@ -91,38 +90,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Static portfolio items */}
-          <div className="mt-10 columns-1 gap-6 sm:columns-2 lg:columns-3 [&>div]:mb-6">
-            {PORTFOLIO_ITEMS.slice(0, 3).map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative break-inside-avoid overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30"
-              >
-                <div className="relative w-full overflow-hidden aspect-[4/5]">
-                  <img
-                    src={item.thumbnail}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/40 to-[#0e1624]/10" />
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <span className="mb-2 inline-block rounded-full border border-[#D4A94B]/30 bg-[#0e1624]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#E0B95C] backdrop-blur-sm">
-                      {item.industry}
-                    </span>
-                    <h3 className="font-bold text-lg text-white">{item.title}</h3>
-                    <div className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
-                      <TrendingUp className="h-4 w-4" />
-                      {item.result}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </Container>
       </section>
 
