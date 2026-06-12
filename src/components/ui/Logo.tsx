@@ -4,7 +4,7 @@ export default function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center ${className}`}>
       <Image
-        src="/logo-square.png"
+        src="/logo-square.jpg"
         alt="IK Creative Ads"
         width={200}
         height={200}

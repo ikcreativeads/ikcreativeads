@@ -130,7 +130,7 @@ export default function Hero() {
               className="glass-strong relative z-10 flex h-48 w-48 items-center justify-center rounded-full shadow-gold-glow sm:h-60 sm:w-60 lg:h-72 lg:w-72 overflow-hidden"
             >
               <Image
-                src="/logo.png"
+                src="/logo-square.jpg"
                 alt="IK Creative Ads"
                 width={280}
                 height={280}
