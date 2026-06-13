@@ -81,7 +81,8 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-navy/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
+            style={{ backgroundColor: "#0e1624", position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
           >
             <Container>
               <div className="flex h-20 items-center justify-between">
