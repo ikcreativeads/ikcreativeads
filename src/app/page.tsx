@@ -5,6 +5,7 @@ import HowWeWork from "@/components/HowWeWork";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Stats from "@/components/Stats";
+import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
@@ -21,6 +22,7 @@ export default function Home() {
         <Services />
         <Portfolio />
         <Stats />
+        <Pricing />
         <Testimonials />
         <FAQ />
         <CTA />
