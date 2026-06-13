@@ -211,13 +211,14 @@ export default function CennikPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
             {jednorazowe.map((item, i) => (
-              <motion.div
+              <motion.button
                 key={item.name}
+                onClick={() => setModal(item)}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-6 group hover:border-[#D4A94B]/30 transition-colors"
+                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-6 group hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer w-full"
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div className="flex items-start gap-4">
@@ -229,14 +230,11 @@ export default function CennikPage() {
                   </div>
                   <div className="shrink-0 text-xl font-black text-gold-gradient">{item.price}</div>
                 </div>
-                <button
-                  onClick={() => setModal(item)}
-                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 hover:text-[#D4A94B] transition-colors"
-                >
+                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
                   <ChevronRight className="h-3.5 w-3.5" />
                   Dowiedz się więcej
-                </button>
-              </motion.div>
+                </span>
+              </motion.button>
             ))}
           </div>
         </motion.div>
@@ -258,13 +256,14 @@ export default function CennikPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {fotografia.map((item, i) => (
-              <motion.div
+              <motion.button
                 key={item.name}
+                onClick={() => setModal(item)}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-5 hover:border-[#D4A94B]/30 transition-colors"
+                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-5 hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer w-full group"
               >
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-start gap-3">
@@ -276,14 +275,11 @@ export default function CennikPage() {
                   </div>
                   <div className="shrink-0 text-lg font-black text-gold-gradient">{item.price}</div>
                 </div>
-                <button
-                  onClick={() => setModal(item)}
-                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 hover:text-[#D4A94B] transition-colors"
-                >
+                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
                   <ChevronRight className="h-3.5 w-3.5" />
                   Dowiedz się więcej
-                </button>
-              </motion.div>
+                </span>
+              </motion.button>
             ))}
           </div>
         </motion.div>
