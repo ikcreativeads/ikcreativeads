@@ -16,11 +16,11 @@ import type { ComponentType } from "react";
 import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
 
 export const NAV_LINKS = [
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Usługi", href: "/#uslugi" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Cennik", href: "/cennik" },
-  { label: "Opinie", href: "#opinie" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Opinie", href: "/#opinie" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export interface Benefit {
