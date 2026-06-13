@@ -7,7 +7,7 @@ import Container from "./ui/Container";
 
 const jednorazowe = [
   {
-    icon: "📹",
+    icon: "📷",
     name: "Rolka reklamowa",
     desc: "do 60 sek. — nagranie + montaż",
     price: "200 zł",
@@ -20,7 +20,7 @@ const jednorazowe = [
     ],
   },
   {
-    icon: "🛸",
+    icon: "🚁",
     name: "Rolka z dronem",
     desc: "do 60 sek. — nagranie + dron + montaż",
     price: "250 zł",
@@ -88,7 +88,7 @@ const fotografia = [
     ],
   },
   {
-    icon: "🛸",
+    icon: "🚁",
     name: "Zdjęcia z drona",
     desc: "widok z powietrza — do 15 zdjęć",
     price: "100 zł",

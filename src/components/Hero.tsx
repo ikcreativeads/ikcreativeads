@@ -98,36 +98,20 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: animated visual */}
-          <div className="relative mx-auto flex h-[420px] w-full max-w-md items-center justify-center lg:h-[560px] lg:max-w-none">
-            {/* Rotating ring */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              style={{ willChange: "transform" }}
-              className="absolute h-[320px] w-[320px] rounded-full border border-dashed border-gold/20 sm:h-[400px] sm:w-[400px] lg:h-[480px] lg:w-[480px]"
-              aria-hidden="true"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-              style={{ willChange: "transform" }}
-              className="absolute hidden sm:block h-[260px] w-[260px] rounded-full border border-white/10 sm:h-[330px] sm:w-[330px] lg:h-[390px] lg:w-[390px]"
-              aria-hidden="true"
-            />
+          {/* Right: visual */}
+          <div className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center lg:h-[520px] lg:max-w-none">
+            {/* Static ring — bez animacji na mobile */}
+            <div className="absolute h-[300px] w-[300px] rounded-full border border-dashed border-gold/20 sm:h-[400px] sm:w-[400px] lg:h-[460px] lg:w-[460px] hidden sm:block" aria-hidden="true" />
 
-            {/* Glow behind logo */}
-            <div
-              className="absolute h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(246,217,140,0.35)_0%,rgba(212,169,75,0.08)_60%,transparent_75%)] blur-2xl"
-              aria-hidden="true"
-            />
+            {/* Glow — uproszczony, bez blur na mobile */}
+            <div className="absolute h-48 w-48 rounded-full bg-[#D4A94B]/10 sm:bg-[radial-gradient(circle,rgba(246,217,140,0.25)_0%,transparent_70%)] sm:blur-2xl sm:h-56 sm:w-56" aria-hidden="true" />
 
             {/* Central logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="glass-strong relative z-10 flex h-48 w-48 items-center justify-center rounded-full shadow-gold-glow sm:h-60 sm:w-60 lg:h-72 lg:w-72 overflow-hidden"
+              transition={{ duration: 0.6 }}
+              className="relative z-10 flex h-48 w-48 items-center justify-center rounded-full border border-[#D4A94B]/30 bg-[#162235] sm:h-60 sm:w-60 lg:h-72 lg:w-72 overflow-hidden shadow-[0_0_40px_rgba(212,169,75,0.2)]"
             >
               <Image
                 src="/logo-square.jpg"
@@ -139,40 +123,22 @@ export default function Hero() {
               />
             </motion.div>
 
-            {/* Floating film card */}
-            <motion.div
-              animate={{ y: [0, -18, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="glass absolute -left-2 top-6 flex items-center gap-2 rounded-2xl px-4 py-3 shadow-card-hover sm:left-2 sm:top-8"
-            >
+            {/* Floating cards — tylko na sm+ */}
+            <div className="glass absolute -left-2 top-6 hidden sm:flex items-center gap-2 rounded-2xl px-4 py-3 sm:left-2 sm:top-8">
               <Film className="h-5 w-5 text-gold-warm" />
               <div>
                 <p className="text-xs font-semibold text-white">Reels Instagram</p>
                 <p className="text-[10px] text-white/50">+180% zasięgu</p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Floating stat card */}
-            <motion.div
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="glass absolute bottom-10 right-0 flex items-center gap-2 rounded-2xl px-4 py-3 shadow-card-hover sm:right-2 sm:bottom-16"
-            >
+            <div className="glass absolute bottom-10 right-0 hidden sm:flex items-center gap-2 rounded-2xl px-4 py-3 sm:right-2 sm:bottom-16">
               <Sparkles className="h-5 w-5 text-gold-warm" />
               <div>
                 <p className="text-xs font-semibold text-white">TikTok Ads</p>
                 <p className="text-[10px] text-white/50">120 leadów / kampania</p>
               </div>
-            </motion.div>
-
-            {/* Floating play badge */}
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="glass absolute -right-2 top-1/2 hidden h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full shadow-card-hover sm:flex"
-            >
-              <Play className="h-6 w-6 fill-gold-warm text-gold-warm" />
-            </motion.div>
+            </div>
           </div>
         </div>
       </Container>
