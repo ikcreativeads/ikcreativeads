@@ -19,26 +19,31 @@ const siteUrl = "https://ikcreativeads.pl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Rolki Reklamowe dla Firm | IK Creative Ads",
+  title: "IK Creative Ads — Rolki Reklamowe Dębica | Reels, TikTok, Shorts",
   description:
-    "Tworzymy skuteczne rolki reklamowe dla firm. Reels, TikTok, Shorts i content video, który zwiększa zasięgi oraz sprzedaż.",
+    "Agencja video premium z Dębicy. Tworzymy profesjonalne rolki reklamowe na Instagram Reels, TikTok i YouTube Shorts. Zdobądź klientów dzięki skutecznemu video marketingowi. Sprawdź cennik i zamów bezpłatną konsultację.",
   keywords: [
-    "rolki reklamowe",
-    "reels dla firm",
-    "tiktok ads",
+    "rolki reklamowe Dębica",
+    "agencja video Dębica",
+    "reels reklamowe",
+    "tiktok reklama firma",
+    "youtube shorts reklama",
     "produkcja video social media",
-    "agencja kreatywna",
+    "instagram reels dla firm",
+    "agencja kreatywna Podkarpacie",
     "content marketing video",
+    "rolki reklamowe cena",
     "IK Creative Ads",
+    "video marketing Dębica",
   ],
   authors: [{ name: "IK Creative Ads" }],
   alternates: {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Rolki Reklamowe dla Firm | IK Creative Ads",
+    title: "IK Creative Ads — Rolki Reklamowe Dębica | Reels, TikTok, Shorts",
     description:
-      "Tworzymy skuteczne rolki reklamowe dla firm. Reels, TikTok, Shorts i content video, który zwiększa zasięgi oraz sprzedaż.",
+      "Agencja video premium z Dębicy. Tworzymy profesjonalne rolki reklamowe na Instagram Reels, TikTok i YouTube Shorts. Bezpłatna konsultacja.",
     url: siteUrl,
     siteName: "IK Creative Ads",
     locale: "pl_PL",
@@ -46,13 +51,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rolki Reklamowe dla Firm | IK Creative Ads",
+    title: "IK Creative Ads — Rolki Reklamowe Dębica | Reels, TikTok, Shorts",
     description:
-      "Tworzymy skuteczne rolki reklamowe dla firm. Reels, TikTok, Shorts i content video, który zwiększa zasięgi oraz sprzedaż.",
+      "Agencja video premium z Dębicy. Profesjonalne rolki reklamowe na Reels, TikTok i Shorts.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 
