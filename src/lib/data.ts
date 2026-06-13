@@ -323,21 +323,31 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Ile kosztuje rolka reklamowa?",
     answer:
-      "Cena zależy od zakresu produkcji — liczby materiałów, miejsca nagrania oraz złożoności montażu. Po bezpłatnej konsultacji przygotowujemy indywidualną wycenę dopasowaną do Twojego budżetu i celów.",
+      "Rolka jednorazowa to koszt 200 zł (nagranie + montaż), a rolka z dronem 250 zł. Jeśli zależy Ci na regularnym contencie, mamy pakiety miesięczne: Starter (4 rolki) za 699 zł, Popularny (8 rolek) za 1199 zł i Premium (12 rolek + 2 sesje zdjęciowe) za 1799 zł. Pełny cennik znajdziesz na stronie /cennik.",
+  },
+  {
+    question: "Ile kosztuje sesja zdjęciowa?",
+    answer:
+      "Zdjęcia lokalu lub pracowników to 120 zł za sesję (do 20 zdjęć po obróbce). Zdjęcia produktów — 150 zł. Zdjęcia zewnętrzne firmy — 100 zł. Zdjęcia z drona — 100 zł. Retusz i obróbka są zawsze w cenie.",
   },
   {
     question: "Jak długo trwa realizacja?",
     answer:
-      "Standardowa realizacja, od konsultacji po dostarczenie gotowych materiałów, trwa zazwyczaj od 1 do 3 tygodni. Czas zależy od liczby rolek i dostępności terminów nagrań.",
+      "Gotowy materiał dostarczamy w ciągu 48 godzin od sesji nagraniowej. W pakietach miesięcznych ustalamy stały termin co tydzień, dzięki czemu masz pewność regularnego contentu.",
   },
   {
     question: "Czy pomagacie ze scenariuszem?",
     answer:
-      "Tak, scenariusz i koncepcja kreatywna to integralna część naszej usługi. Wspólnie ustalamy przekaz, strukturę i styl, które najlepiej zaprezentują Twoją markę.",
+      "Tak — w pakiecie Premium tworzymy pomysły i scenariusze treści dla Ciebie. W pozostałych pakietach i realizacjach jednorazowych zawsze doradzamy na konsultacji, jak najlepiej pokazać Twoją firmę.",
   },
   {
     question: "Czy nagrywacie na miejscu?",
     answer:
-      "Oczywiście. Realizujemy nagrania bezpośrednio w Twojej firmie — biurze, lokalu, studiu czy plenerze — aby materiały były autentyczne i spójne z Twoją marką.",
+      "Tak, przyjeżdżamy do Twojej firmy — biura, lokalu, magazynu czy pleneru. Działamy głównie na terenie Dębicy i okolic Podkarpacia.",
+  },
+  {
+    question: "Czy macie drona?",
+    answer:
+      "Tak, oferujemy nagrania i zdjęcia dronem 4K. Rolka z dronem to 250 zł, zdjęcia z drona — 100 zł. W pakiecie Premium dron jest wliczony raz w miesiącu gratis.",
   },
 ];
