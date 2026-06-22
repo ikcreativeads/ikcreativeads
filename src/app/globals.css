@@ -130,10 +130,6 @@ html {
   );
 }
 
-/* Na dotykowych — przywróć domyślny kursor */
-@media (pointer: coarse) {
-  html, body, * { cursor: auto !important; }
-}
 
 /* Reduce all heavy effects on mobile */
 @media (max-width: 768px) {

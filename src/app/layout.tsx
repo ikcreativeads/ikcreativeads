@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/ui/CustomCursor";
 import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
@@ -84,7 +83,6 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="bg-navy text-white font-sans antialiased overflow-x-hidden">
-        <CustomCursor />
         {children}
       </body>
     </html>
