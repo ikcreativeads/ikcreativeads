@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -80,6 +81,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl" className={`${inter.variable} ${poppins.variable}`}>
+      <head>
+        <JsonLd />
+      </head>
       <body className="bg-navy text-white font-sans antialiased overflow-x-hidden">
         <CustomCursor />
         <ScrollProgress />
