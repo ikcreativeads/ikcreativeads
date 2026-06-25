@@ -104,56 +104,57 @@ const fotografia = [
 
 const plans = [
   {
-    name: "Starter",
+    name: "Widoczność",
     icon: "🌱",
     highlight: false,
     price: "699",
-    savings: "Oszczędzasz 101 zł vs. cena jednorazowa",
-    description: "1 rolka tygodniowo (4 rolki w miesiącu)",
+    savings: "Zamiast 800 zł — oszczędzasz 101 zł",
+    description: "4 rolki w miesiącu (1 tygodniowo)",
     features: [
-      "Nagranie + montaż każdej rolki",
-      "Gotowe pliki do publikacji",
-      "Format pod FB, IG, TikTok",
-      "Napisy i muzyka w cenie",
+      "Nagranie, montaż, napisy, muzyka, korekcja koloru",
+      "Format pod Facebook, Instagram i TikTok",
+      "1 wizyta nagraniowa w miesiącu",
+      "Realizacja do 48h",
+      "Gwarancja poprawek do skutku",
     ],
   },
   {
-    name: "Najpopularniejszy",
+    name: "Wzrost",
     icon: "⭐",
     highlight: true,
     price: "1199",
-    savings: "Oszczędzasz 401 zł vs. cena jednorazowa",
-    description: "2 rolki tygodniowo (8 rolek w miesiącu)",
+    savings: "Zamiast 1600 zł — oszczędzasz 401 zł",
+    description: "8 rolek w miesiącu (2 tygodniowo)",
     features: [
-      "Nagranie + montaż każdej rolki",
-      "1 sesja zdjęciowa gratis",
+      "Wszystko z pakietu Widoczność",
+      "1 darmowa sesja zdjęciowa",
+      "Plan publikacji na cały miesiąc",
       "Priorytetowy termin realizacji",
-      "Format pod FB, IG, TikTok",
-      "Napisy i muzyka w cenie",
+      "Miesięczny raport zasięgów",
     ],
   },
   {
-    name: "Premium",
+    name: "Partner",
     icon: "👑",
     highlight: false,
     price: "1799",
-    savings: "Oszczędzasz 1 001 zł vs. cena jednorazowa",
-    description: "3 rolki tygodniowo + zdjęcia (12 rolek + 2 sesje miesięcznie)",
+    savings: "Zamiast 2800 zł — oszczędzasz 1001 zł",
+    description: "12 rolek w miesiącu",
     features: [
-      "Nagranie + montaż każdej rolki",
+      "Wszystko z pakietu Wzrost",
       "2 sesje zdjęciowe miesięcznie",
-      "Dron 1× w miesiącu gratis",
-      "Pomysły i scenariusze treści",
-      "Stały termin co tydzień",
-      "Priorytetowa realizacja",
+      "1 ujęcie z drona gratis",
+      "Stały zarezerwowany termin co tydzień",
+      "Plan publikacji + raport efektów",
     ],
   },
 ];
 
 const bottomFeatures = [
   { icon: "✨", text: "Retusz i obróbka zdjęć zawsze w cenie" },
-  { icon: "⏱️", text: "Realizacja w ciągu 48h od sesji" },
-  { icon: "🤝", text: "Ceny do negocjacji przy dłuższej współpracy" },
+  { icon: "⏱️", text: "Realizacja do 48h" },
+  { icon: "🏆", text: "Pierwsza rolka z gwarancją satysfakcji" },
+  { icon: "🤝", text: "Tylko jedna firma z danej branży w mieście" },
 ];
 
 type Item = { icon: string; name: string; desc: string; price: string; details: string[] };
@@ -359,8 +360,54 @@ export default function CennikPage() {
           ))}
         </div>
 
+        {/* Dodatki */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 rounded-2xl border border-white/8 bg-[#162235]/40 p-6"
+        >
+          <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-4">Dodatki do pakietów</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              ["Ujęcie z drona", "200 zł"],
+              ["Dodatkowa rolka poza pakietem", "250 zł"],
+              ["Dodatkowa sesja zdjęciowa", "250 zł"],
+              ["Film wizerunkowy 60–90s", "od 600 zł"],
+              ["Realizacja ekspresowa 24h", "+30%"],
+            ].map(([name, price]) => (
+              <div key={name} className="flex flex-col gap-1">
+                <span className="text-xs text-white/50">{name}</span>
+                <span className="text-sm font-bold text-white">{price}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Meta Ads */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-10 rounded-2xl border border-[#D4A94B]/25 bg-gradient-to-r from-[#D4A94B]/8 to-transparent p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
+          <div>
+            <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-1">Usługa dodatkowa</p>
+            <p className="text-base font-bold text-white">Silnik Zasięgu — prowadzenie reklam Meta Ads</p>
+            <p className="text-sm text-white/55 mt-1">
+              Kampanie na Facebooku i Instagramie · Targetowanie lokalne (Dębica i okolice) · Twoje rolki docierają do realnych klientów · Raport: zasięg, kliknięcia, efekty
+            </p>
+          </div>
+          <div className="shrink-0 text-right">
+            <p className="text-2xl font-black text-gold-gradient">od 490 zł</p>
+            <p className="text-xs text-white/40">/ miesiąc + budżet reklamowy</p>
+          </div>
+        </motion.div>
+
         {/* Bottom features */}
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {bottomFeatures.map((f, i) => (
             <motion.div
               key={f.text}

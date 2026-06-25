@@ -323,7 +323,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Ile kosztuje rolka reklamowa?",
     answer:
-      "Rolka jednorazowa to koszt 200 zł (nagranie + montaż), a rolka z dronem 250 zł. Jeśli zależy Ci na regularnym contencie, mamy pakiety miesięczne: Starter (4 rolki) za 699 zł, Popularny (8 rolek) za 1199 zł i Premium (12 rolek + 2 sesje zdjęciowe) za 1799 zł. Pełny cennik znajdziesz na stronie /cennik.",
+      "Rolka jednorazowa to koszt 200 zł (nagranie + montaż), a rolka z dronem 250 zł. Jeśli zależy Ci na regularnym contencie, mamy pakiety miesięczne: Widoczność (4 rolki) za 699 zł, Wzrost (8 rolek) za 1199 zł i Partner (12 rolek + 2 sesje zdjęciowe) za 1799 zł. Pełny cennik znajdziesz na stronie /cennik.",
   },
   {
     question: "Ile kosztuje sesja zdjęciowa?",
@@ -338,7 +338,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Czy pomagacie ze scenariuszem?",
     answer:
-      "Tak — w pakiecie Premium tworzymy pomysły i scenariusze treści dla Ciebie. W pozostałych pakietach i realizacjach jednorazowych zawsze doradzamy na konsultacji, jak najlepiej pokazać Twoją firmę.",
+      "Tak — w pakiecie Partner tworzymy plan publikacji na cały miesiąc. W pozostałych pakietach i realizacjach jednorazowych zawsze doradzamy na konsultacji, jak najlepiej pokazać Twoją firmę.",
   },
   {
     question: "Czy nagrywacie na miejscu?",
