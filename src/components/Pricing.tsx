@@ -59,7 +59,7 @@ const plans = [
 const bottomNotes = [
   "Realizacja do 48h",
   "Pierwsza rolka z gwarancją satysfakcji",
-  "Współpracuję tylko z jedną firmą z danej branży w mieście",
+  "Retusz i obróbka zdjęć zawsze w cenie",
 ];
 
 export default function Pricing() {

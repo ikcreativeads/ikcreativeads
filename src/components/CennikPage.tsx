@@ -154,7 +154,7 @@ const bottomFeatures = [
   { icon: "✨", text: "Retusz i obróbka zdjęć zawsze w cenie" },
   { icon: "⏱️", text: "Realizacja do 48h" },
   { icon: "🏆", text: "Pierwsza rolka z gwarancją satysfakcji" },
-  { icon: "🤝", text: "Tylko jedna firma z danej branży w mieście" },
+  { icon: "🤝", text: "Ceny do negocjacji przy dłuższej współpracy" },
 ];
 
 type Item = { icon: string; name: string; desc: string; price: string; details: string[] };
