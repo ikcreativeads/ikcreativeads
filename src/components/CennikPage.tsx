@@ -346,7 +346,7 @@ export default function CennikPage() {
               </ul>
 
               <a
-                href="/#kontakt"
+                href="https://ikcreativeads.pl/#kontakt"
                 className={`group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition-all duration-300 ${
                   plan.highlight
                     ? "bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] text-[#0E1624] hover:shadow-[0_0_30px_rgba(212,169,75,0.4)] hover:scale-105"
@@ -481,7 +481,7 @@ export default function CennikPage() {
                   </ul>
 
                   <a
-                    href="/#kontakt"
+                    href="https://ikcreativeads.pl/#kontakt"
                     onClick={() => setModal(null)}
                     className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] px-6 py-4 text-base font-bold text-[#0E1624] hover:shadow-[0_0_30px_rgba(212,169,75,0.4)] transition-all hover:scale-[1.02]"
                   >
