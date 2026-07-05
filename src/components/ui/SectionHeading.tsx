@@ -26,7 +26,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.5 }}
-          className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#D4A94B]/70"
+          className="mb-4 inline-block rounded-full border border-gold/30 bg-gold/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-warm"
         >
           {eyebrow}
         </motion.span>
