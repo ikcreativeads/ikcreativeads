@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Container from "./ui/Container";
-import SectionHeading from "./ui/SectionHeading";
 import ServiceModal from "./ui/ServiceModal";
 import { SERVICES, type ServiceItem } from "@/lib/data";
 
@@ -15,43 +14,35 @@ export default function Services() {
     <>
       <section id="uslugi" className="relative section-padding border-t border-white/6">
         <Container>
-          <SectionHeading
-            eyebrow="Nasze usługi"
-            title={
-              <>
-                Pełen zakres produkcji{" "}
-                <span className="text-[#D4A94B]">video reklamowego</span>
-              </>
-            }
-            description="Od koncepcji, przez nagranie, po montaż i publikację — kompleksowo zajmujemy się Twoim contentem video."
-          />
+          <div className="mb-16 flex items-end justify-between flex-wrap gap-6">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-black leading-tight tracking-tight text-white">
+              Pełen zakres{" "}
+              <span className="text-[#D4A94B]">produkcji video</span>
+            </h2>
+            <p className="text-sm text-white/40 max-w-sm">
+              Od koncepcji po publikację — kompleksowo zajmujemy się Twoim contentem.
+            </p>
+          </div>
 
-          <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-3 border border-white/6 rounded-2xl overflow-hidden">
+          <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-3 border border-white/6 rounded-2xl overflow-hidden">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (
                 <motion.button
                   key={service.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: (index % 3) * 0.06 }}
                   onClick={() => setSelected(service)}
-                  className="group flex flex-col bg-[#0E1624] hover:bg-[#111d2e] transition-colors duration-300 p-8 text-left cursor-pointer w-full"
+                  className="group flex flex-col bg-[#0E1624] hover:bg-[#0f1b2a] transition-colors duration-200 p-8 text-left cursor-pointer w-full"
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4A94B]/20 bg-[#D4A94B]/8">
-                      <Icon className="h-5 w-5 text-[#D4A94B]" strokeWidth={1.5} />
-                    </div>
-                    <ArrowUpRight className="h-4 w-4 text-white/20 group-hover:text-white/50 transition-colors" />
+                  <div className="flex items-start justify-between mb-6">
+                    <Icon className="h-6 w-6 text-white/25 group-hover:text-[#D4A94B] transition-colors duration-200" strokeWidth={1.5} />
+                    <ArrowUpRight className="h-4 w-4 text-white/15 group-hover:text-white/40 transition-colors duration-200" />
                   </div>
-
-                  <h3 className="mt-5 text-base font-bold text-white">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/45">{service.description}</p>
-
-                  <p className="mt-5 text-xs font-semibold text-[#D4A94B]/50 group-hover:text-[#D4A94B] transition-colors">
-                    Dowiedz się więcej →
-                  </p>
+                  <h3 className="text-base font-bold text-white">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/40">{service.description}</p>
                 </motion.button>
               );
             })}

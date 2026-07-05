@@ -8,7 +8,6 @@
   --charcoal-blue: #243140;
   --gold: #d4a94b;
   --gold-warm: #e0b95c;
-  --gold-glow: #f6d98c;
 }
 
 * {
@@ -36,37 +35,39 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0e1624; }
+::-webkit-scrollbar-thumb { background: rgba(212, 169, 75, 0.3); border-radius: 6px; }
 
-::-webkit-scrollbar-track {
-  background: #0e1624;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(212, 169, 75, 0.4);
-  border-radius: 6px;
-}
-
-/* Gold text gradient */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #d4a94b 0%, #e0b95c 50%, #f6d98c 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Section padding helper */
+/* Section padding */
 .section-padding {
   padding-top: clamp(4rem, 10vw, 8rem);
   padding-bottom: clamp(4rem, 10vw, 8rem);
 }
 
-/* Focus visible accessibility */
+/* Focus visible */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Reduced motion — disable all Framer Motion transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Framer Motion uses transform/opacity — neutralize */
+  [style*="transform"],
+  [style*="opacity"] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
