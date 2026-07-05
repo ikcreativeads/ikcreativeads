@@ -110,24 +110,15 @@ export default function Portfolio() {
                     </>
                   ) : (
                     <>
-                      {/* Instagram branded placeholder */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1a0533] via-[#162235] to-[#0e1624]" />
-                      {/* Instagram gradient ring */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative flex h-24 w-24 items-center justify-center">
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] opacity-30 blur-xl group-hover:opacity-50 transition-opacity duration-300" />
-                          <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] group-hover:scale-110 transition-transform duration-300">
-                            <Instagram className="h-10 w-10 text-white" />
-                          </div>
-                        </div>
-                      </div>
-                      {/* Subtle grain overlay */}
-                      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")' }} />
-                      {/* Dark overlay bottom */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-transparent to-transparent" />
-                      {/* External link indicator */}
-                      <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 backdrop-blur-sm">
-                        <span className="text-[10px] font-semibold text-white/70 uppercase tracking-wider">Instagram</span>
+                      <img
+                        src="/bunkier-thumb.webp"
+                        alt={video.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/20 to-transparent" />
+                      <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
+                        <Instagram className="h-3 w-3 text-white/80" />
+                        <span className="text-[10px] font-semibold text-white/80 uppercase tracking-wider">Instagram</span>
                       </div>
                     </>
                   )}
