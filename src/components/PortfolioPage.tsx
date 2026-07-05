@@ -7,11 +7,22 @@ import Container from "./ui/Container";
 
 /* ─── Kategorie ─── */
 const CATEGORIES = [
-  { id: "wszystkie", label: "Wszystkie" },
-  { id: "barber", label: "Barber" },
-  { id: "beauty", label: "Beauty" },
-  { id: "mechanik", label: "Mechanik" },
-  { id: "detailing", label: "Detailing" },
+  { id: "wszystkie",   label: "Wszystkie" },
+  { id: "barber",      label: "Barber" },
+  { id: "beauty",      label: "Beauty" },
+  { id: "paznokcie",   label: "Paznokcie" },
+  { id: "medycyna",    label: "Med. estetyczna" },
+  { id: "stomatologia",label: "Stomatologia" },
+  { id: "fitness",     label: "Fitness" },
+  { id: "restauracja", label: "Restauracja" },
+  { id: "eventy",      label: "Eventy" },
+  { id: "detailing",   label: "Detailing" },
+  { id: "mechanik",    label: "Mechanik" },
+  { id: "fotograf",    label: "Fotograf" },
+  { id: "hotel",       label: "Hotel" },
+  { id: "jubiler",     label: "Jubiler" },
+  { id: "wnetrza",     label: "Wnętrza" },
+  { id: "szkola",      label: "Szkoła jazdy" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -79,10 +90,21 @@ type ActiveEmbed =
 
 /* ─── Etykiety branż ─── */
 const INDUSTRY_LABELS: Record<Industry, string> = {
-  barber: "Barber",
-  beauty: "Beauty",
-  mechanik: "Mechanik",
-  detailing: "Detailing",
+  barber:       "Barber",
+  beauty:       "Beauty",
+  paznokcie:    "Paznokcie",
+  medycyna:     "Med. estetyczna",
+  stomatologia: "Stomatologia",
+  fitness:      "Fitness",
+  restauracja:  "Restauracja",
+  eventy:       "Eventy",
+  detailing:    "Detailing",
+  mechanik:     "Mechanik",
+  fotograf:     "Fotograf",
+  hotel:        "Hotel",
+  jubiler:      "Jubiler",
+  wnetrza:      "Wnętrza",
+  szkola:       "Szkoła jazdy",
 };
 
 export default function PortfolioPage() {
