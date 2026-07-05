@@ -186,7 +186,7 @@ html {
 }
 
 
-/* Reduce all heavy effects on mobile */
+/* Mobile: wyłącz tylko ciężkie efekty GPU, zachowaj animacje wejścia */
 @media (max-width: 768px) {
   .glass,
   .glass-strong {
@@ -197,10 +197,17 @@ html {
   .glow-blob {
     display: none;
   }
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.15s !important;
+  /* Skróć reveal — nieco szybsze, nadal widoczne */
+  .reveal {
+    transition-duration: 0.4s;
+  }
+  /* Skróć animacje wejścia hero — crisp na telefonie */
+  .anim-fade-up  { animation-duration: 0.5s; }
+  .anim-fade-in  { animation-duration: 0.5s; }
+  .anim-scale-in { animation-duration: 0.45s; }
+  /* Wyłącz tylko nieskończoną pętlę shimmera (CPU) */
+  .btn-shimmer::after {
+    animation: none;
   }
 }
 
