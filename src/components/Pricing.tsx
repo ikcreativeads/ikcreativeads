@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Check, Star, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
@@ -81,17 +78,14 @@ export default function Pricing() {
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.name}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.55, delay: index * 0.1 }}
-              className={`relative flex flex-col rounded-3xl p-8 ${
+              className={`reveal relative flex flex-col rounded-3xl p-8 ${
                 plan.highlight
                   ? "bg-gradient-to-b from-[#D4A94B]/15 to-[#162235] border-2 border-[#D4A94B]/60 shadow-[0_0_50px_rgba(212,169,75,0.15)]"
                   : "border border-white/8 bg-[#162235]/60"
               }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {plan.highlight && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -138,17 +132,14 @@ export default function Pricing() {
                 Wybierz pakiet
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Dodatki */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-10 rounded-2xl border border-white/8 bg-[#162235]/40 p-6"
+        <div
+          className="reveal mt-10 rounded-2xl border border-white/8 bg-[#162235]/40 p-6"
+          style={{ transitionDelay: "150ms" }}
         >
           <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-4">Dodatki do pakietów</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -165,15 +156,12 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Meta Ads */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-4 rounded-2xl border border-[#D4A94B]/25 bg-gradient-to-r from-[#D4A94B]/8 to-transparent p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        <div
+          className="reveal mt-4 rounded-2xl border border-[#D4A94B]/25 bg-gradient-to-r from-[#D4A94B]/8 to-transparent p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          style={{ transitionDelay: "200ms" }}
         >
           <div>
             <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-1">Usługa dodatkowa</p>
@@ -186,7 +174,7 @@ export default function Pricing() {
             <p className="text-2xl font-black text-gold-gradient">od 490 zł</p>
             <p className="text-xs text-white/40">/ miesiąc + budżet reklamowy</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom notes */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/50">

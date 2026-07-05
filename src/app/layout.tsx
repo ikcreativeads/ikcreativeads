@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
+import RevealObserver from "@/components/RevealObserver";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -91,6 +92,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="bg-navy text-white font-sans antialiased overflow-x-hidden">
+        <RevealObserver />
         {children}
       </body>
     </html>

@@ -44,13 +44,10 @@ export default function Portfolio() {
           {/* Video cards */}
           <div className="mt-16 grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
             {VIDEO_ITEMS.map((video, index) => (
-              <motion.div
+              <div
                 key={video.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer"
+                className="reveal group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer"
+                style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => setActiveVideo(video.youtubeId)}
               >
                 {/* YouTube thumbnail */}
@@ -86,14 +83,14 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
         </Container>
       </section>
 
-      {/* Video Modal */}
+      {/* Video Modal — keeps AnimatePresence for smooth enter/exit */}
       <AnimatePresence>
         {activeVideo && (
           <>

@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 import GlowOrb from "./ui/GlowOrb";
@@ -26,13 +23,10 @@ export default function Stats() {
 
         <div className="mt-16 grid grid-cols-2 gap-6 lg:grid-cols-4">
           {STATS.map((stat, index) => (
-            <motion.div
+            <div
               key={stat.label}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass relative flex flex-col items-center rounded-3xl px-4 py-10 text-center"
+              className="reveal glass relative flex flex-col items-center rounded-3xl px-4 py-10 text-center"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <p className="font-display text-4xl font-extrabold text-gold-gradient sm:text-5xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
@@ -40,7 +34,7 @@ export default function Stats() {
               <p className="mt-3 text-sm leading-snug text-white/60">
                 {stat.label}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Container>

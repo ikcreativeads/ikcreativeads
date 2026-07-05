@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 import { STEPS } from "@/lib/data";
@@ -33,13 +30,10 @@ export default function HowWeWork() {
             {STEPS.map((step, index) => {
               const Icon = step.icon;
               return (
-                <motion.div
+                <div
                   key={step.number}
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.6, delay: index * 0.12 }}
-                  className="group relative flex flex-col items-center text-center lg:items-start lg:text-left"
+                  className="reveal group relative flex flex-col items-center text-center lg:items-start lg:text-left"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-2xl glass-strong shadow-gold-glow-sm transition-transform duration-300 group-hover:scale-110 group-hover:shadow-gold-glow">
                     <Icon className="h-8 w-8 text-gold-warm" strokeWidth={1.5} />
@@ -53,7 +47,7 @@ export default function HowWeWork() {
                   <p className="mt-2 text-sm leading-relaxed text-white/60">
                     {step.description}
                   </p>
-                </motion.div>
+                </div>
               );
             })}
           </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import Container from "./ui/Container";
 
@@ -38,13 +37,7 @@ export default function CTA() {
   return (
     <section id="kontakt" className="relative section-padding">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#162235] to-[#243140] border border-[#D4A94B]/20 px-6 py-16 sm:px-12 sm:py-20"
-        >
+        <div className="reveal relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#162235] to-[#243140] border border-[#D4A94B]/20 px-6 py-16 sm:px-12 sm:py-20">
           {/* Gold glow top */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4A94B]/60 to-transparent" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-[#D4A94B]/5 rounded-full blur-3xl pointer-events-none" />
@@ -167,7 +160,7 @@ export default function CTA() {
               )}
             </div>
           </div>
-        </motion.div>
+        </div>
       </Container>
     </section>
   );

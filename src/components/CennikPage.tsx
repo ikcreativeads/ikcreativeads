@@ -165,25 +165,17 @@ export default function CennikPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0E1624] via-[#162235] to-[#0E1624] pt-28 pb-24">
       <Container>
-        {/* Back link */}
-        <motion.a
+        {/* Back link — CSS entrance */}
+        <a
           href="/"
-          initial={{ opacity: 0, x: -16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-[#D4A94B] transition-colors mb-10"
+          className="anim-fade-up inline-flex items-center gap-2 text-sm text-white/50 hover:text-[#D4A94B] transition-colors mb-10"
         >
           <ArrowLeft className="h-4 w-4" />
           Wróć na stronę główną
-        </motion.a>
+        </a>
 
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
+        {/* Header — CSS entrance */}
+        <div className="anim-fade-up delay-100 text-center mb-20">
           <p className="text-[#D4A94B] text-sm font-bold tracking-[0.2em] uppercase mb-4">
             IK Creative Ads • Dębica
           </p>
@@ -193,17 +185,11 @@ export default function CennikPage() {
           <p className="text-white/55 text-lg max-w-xl mx-auto">
             Produkcja wideo & fotografia. Przejrzyste ceny, bez ukrytych kosztów.
           </p>
-        </motion.div>
+        </div>
 
         {/* Section 1 — Rolki jednorazowe */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
-        >
-          <div className="flex items-center gap-3 mb-8">
+        <div className="mb-16">
+          <div className="reveal flex items-center gap-3 mb-8">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4A94B]/10 border border-[#D4A94B]/20">
               <Clapperboard className="h-5 w-5 text-[#D4A94B]" />
             </div>
@@ -212,43 +198,38 @@ export default function CennikPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 max-w-2xl">
             {jednorazowe.map((item, i) => (
-              <motion.button
+              <div
                 key={item.name}
-                onClick={() => setModal(item)}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-6 group hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer w-full"
+                className="reveal"
+                style={{ transitionDelay: `${i * 100}ms` }}
               >
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">{item.icon}</span>
-                    <div>
-                      <p className="font-bold text-white">{item.name}</p>
-                      <p className="text-sm text-white/50 mt-0.5">{item.desc}</p>
+                <button
+                  onClick={() => setModal(item)}
+                  className="flex flex-col w-full h-full rounded-2xl border border-white/8 bg-[#162235]/60 p-6 group hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="flex items-start gap-4">
+                      <span className="text-2xl">{item.icon}</span>
+                      <div>
+                        <p className="font-bold text-white">{item.name}</p>
+                        <p className="text-sm text-white/50 mt-0.5">{item.desc}</p>
+                      </div>
                     </div>
+                    <div className="shrink-0 text-xl font-black text-gold-gradient">{item.price}</div>
                   </div>
-                  <div className="shrink-0 text-xl font-black text-gold-gradient">{item.price}</div>
-                </div>
-                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  Dowiedz się więcej
-                </span>
-              </motion.button>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
+                    <ChevronRight className="h-3.5 w-3.5" />
+                    Dowiedz się więcej
+                  </span>
+                </button>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Section 2 — Fotografia */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-20"
-        >
-          <div className="flex items-center gap-3 mb-8">
+        <div className="mb-20">
+          <div className="reveal flex items-center gap-3 mb-8">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4A94B]/10 border border-[#D4A94B]/20">
               <Camera className="h-5 w-5 text-[#D4A94B]" />
             </div>
@@ -257,33 +238,34 @@ export default function CennikPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {fotografia.map((item, i) => (
-              <motion.button
+              <div
                 key={item.name}
-                onClick={() => setModal(item)}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="flex flex-col rounded-2xl border border-white/8 bg-[#162235]/60 p-5 hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer w-full group"
+                className="reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="flex items-start justify-between gap-3 mb-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-xl">{item.icon}</span>
-                    <div>
-                      <p className="font-semibold text-white text-sm">{item.name}</p>
-                      <p className="text-xs text-white/45 mt-0.5 leading-relaxed">{item.desc}</p>
+                <button
+                  onClick={() => setModal(item)}
+                  className="flex flex-col w-full h-full rounded-2xl border border-white/8 bg-[#162235]/60 p-5 hover:border-[#D4A94B]/30 transition-colors text-left cursor-pointer group"
+                >
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="flex items-start gap-3">
+                      <span className="text-xl">{item.icon}</span>
+                      <div>
+                        <p className="font-semibold text-white text-sm">{item.name}</p>
+                        <p className="text-xs text-white/45 mt-0.5 leading-relaxed">{item.desc}</p>
+                      </div>
                     </div>
+                    <div className="shrink-0 text-lg font-black text-gold-gradient">{item.price}</div>
                   </div>
-                  <div className="shrink-0 text-lg font-black text-gold-gradient">{item.price}</div>
-                </div>
-                <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
-                  <ChevronRight className="h-3.5 w-3.5" />
-                  Dowiedz się więcej
-                </span>
-              </motion.button>
+                  <span className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-[#D4A94B]/60 group-hover:text-[#D4A94B] transition-colors">
+                    <ChevronRight className="h-3.5 w-3.5" />
+                    Dowiedz się więcej
+                  </span>
+                </button>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Divider */}
         <div className="relative mb-20">
@@ -300,17 +282,14 @@ export default function CennikPage() {
         {/* Section 3 — Pakiety */}
         <div className="grid gap-6 lg:grid-cols-3 mb-16">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.name}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.1 }}
-              className={`relative flex flex-col rounded-3xl p-8 ${
+              className={`reveal relative flex flex-col rounded-3xl p-8 ${
                 plan.highlight
                   ? "bg-gradient-to-b from-[#D4A94B]/15 to-[#162235] border-2 border-[#D4A94B]/60 shadow-[0_0_50px_rgba(212,169,75,0.15)]"
                   : "border border-white/8 bg-[#162235]/60"
               }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {plan.highlight && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -356,17 +335,14 @@ export default function CennikPage() {
                 Wybierz pakiet
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Dodatki */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 rounded-2xl border border-white/8 bg-[#162235]/40 p-6"
+        <div
+          className="reveal mb-6 rounded-2xl border border-white/8 bg-[#162235]/40 p-6"
+          style={{ transitionDelay: "150ms" }}
         >
           <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-4">Dodatki do pakietów</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -383,15 +359,12 @@ export default function CennikPage() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Meta Ads */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-10 rounded-2xl border border-[#D4A94B]/25 bg-gradient-to-r from-[#D4A94B]/8 to-transparent p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        <div
+          className="reveal mb-10 rounded-2xl border border-[#D4A94B]/25 bg-gradient-to-r from-[#D4A94B]/8 to-transparent p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          style={{ transitionDelay: "200ms" }}
         >
           <div>
             <p className="text-xs font-bold tracking-[0.18em] text-[#D4A94B] uppercase mb-1">Usługa dodatkowa</p>
@@ -404,27 +377,24 @@ export default function CennikPage() {
             <p className="text-2xl font-black text-gold-gradient">od 490 zł</p>
             <p className="text-xs text-white/40">/ miesiąc + budżet reklamowy</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom features */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {bottomFeatures.map((f, i) => (
-            <motion.div
+            <div
               key={f.text}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex items-center gap-3 rounded-2xl border border-white/8 bg-[#162235]/40 px-5 py-4"
+              className="reveal flex items-center gap-3 rounded-2xl border border-white/8 bg-[#162235]/40 px-5 py-4"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
               <span className="text-xl">{f.icon}</span>
               <p className="text-sm text-white/65">{f.text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Container>
 
-      {/* Modal */}
+      {/* Modal — keeps AnimatePresence for smooth enter/exit */}
       <AnimatePresence>
         {modal && (
           <>

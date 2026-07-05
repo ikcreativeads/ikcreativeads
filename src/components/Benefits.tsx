@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 import GlowOrb from "./ui/GlowOrb";
@@ -27,28 +24,27 @@ export default function Benefits() {
           {BENEFITS.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
-              <motion.div
+              <div
                 key={benefit.title}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: index * 0.12 }}
-                className="group relative overflow-hidden rounded-3xl border border-white/5 bg-card-gradient p-8 transition-all duration-300 hover:-translate-y-2 hover:border-gold/30 hover:shadow-card-hover"
+                className="reveal"
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div
-                  className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold/0 blur-2xl transition-all duration-500 group-hover:bg-gold/20"
-                  aria-hidden="true"
-                />
-                <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-gradient shadow-gold-glow-sm transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-7 w-7 text-navy" strokeWidth={2} />
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-white/5 bg-card-gradient p-8 transition-all duration-300 hover:-translate-y-2 hover:border-gold/30 hover:shadow-card-hover">
+                  <div
+                    className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold/0 blur-2xl transition-all duration-500 group-hover:bg-gold/20"
+                    aria-hidden="true"
+                  />
+                  <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-gradient shadow-gold-glow-sm transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-7 w-7 text-navy" strokeWidth={2} />
+                  </div>
+                  <h3 className="font-display text-xl font-bold text-white">
+                    {benefit.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/60">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="font-display text-xl font-bold text-white">
-                  {benefit.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">
-                  {benefit.description}
-                </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

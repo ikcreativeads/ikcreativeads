@@ -1,49 +1,42 @@
 "use client";
-
 import { useEffect, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 
 export default function AnimatedCounter({
   value,
   suffix = "",
-  duration = 2,
+  duration = 1800,
 }: {
   value: number;
   suffix?: string;
   duration?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.6 });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    duration: duration * 1000,
-    bounce: 0,
-  });
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
+    const el = ref.current;
+    if (!el) return;
 
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = `${Math.floor(latest)}${suffix}`;
-      }
-    });
-    return unsubscribe;
-  }, [springValue, suffix]);
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
 
-  return (
-    <motion.span
-      ref={ref}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
-      0{suffix}
-    </motion.span>
-  );
+        let start: number | null = null;
+        const step = (ts: number) => {
+          if (start === null) start = ts;
+          const progress = Math.min((ts - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = `${Math.floor(eased * value)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      },
+      { threshold: 0.5 }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value, suffix, duration]);
+
+  return <span ref={ref}>0{suffix}</span>;
 }
