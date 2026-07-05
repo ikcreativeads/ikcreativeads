@@ -2,61 +2,44 @@
 
 import { motion } from "framer-motion";
 import Container from "./ui/Container";
-
-const ITEMS = [
-  {
-    title: "Więcej zasięgów",
-    body: "Docieraj do nowych odbiorców dzięki skutecznym rolkom dopasowanym do algorytmów social media.",
-  },
-  {
-    title: "Więcej klientów",
-    body: "Zamieniaj wyświetlenia na realne zapytania i zwiększaj sprzedaż dzięki przemyślanym kreacjom video.",
-  },
-  {
-    title: "Profesjonalny wizerunek",
-    body: "Buduj markę, która wyróżnia się na tle konkurencji jakością i spójnością contentu.",
-  },
-];
+import SectionHeading from "./ui/SectionHeading";
+import { BENEFITS } from "@/lib/data";
 
 export default function Benefits() {
   return (
     <section id="korzysci" className="relative section-padding border-t border-white/6">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-24 items-start">
+        <SectionHeading
+          eyebrow="Dlaczego video"
+          title={
+            <>
+              Video, które{" "}
+              <span className="text-[#D4A94B]">pracuje na Twój biznes</span>
+            </>
+          }
+          description="Krótkie formy video to dziś najskuteczniejszy sposób na dotarcie do klientów. My zadbamy o to, by Twoja marka wykorzystała ten potencjał w pełni."
+        />
 
-          {/* Left — sticky label */}
-          <div className="lg:sticky lg:top-32">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4A94B]/60 mb-5">Dlaczego video</p>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-black leading-tight tracking-tight text-white">
-              Video, które pracuje na{" "}
-              <span className="text-[#D4A94B]">Twój biznes</span>
-            </h2>
-            <p className="mt-5 text-sm leading-relaxed text-white/40 max-w-xs">
-              Krótkie formy video to dziś najskuteczniejszy sposób na dotarcie do klientów lokalnych.
-            </p>
-          </div>
-
-          {/* Right — numbered list */}
-          <div className="divide-y divide-white/6">
-            {ITEMS.map((item, index) => (
+        <div className="mt-16 grid gap-px sm:grid-cols-2 lg:grid-cols-3 border border-white/6 rounded-2xl overflow-hidden">
+          {BENEFITS.map((benefit, index) => {
+            const Icon = benefit.icon;
+            return (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="group py-9 flex items-start gap-8"
+                key={benefit.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="bg-[#0E1624] p-8 hover:bg-[#111d2e] transition-colors duration-300"
               >
-                <span className="font-display text-[3rem] font-black leading-none text-white/8 group-hover:text-white/15 transition-colors select-none tabular-nums shrink-0 w-14 text-right">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/45">{item.body}</p>
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4A94B]/20 bg-[#D4A94B]/8">
+                  <Icon className="h-5 w-5 text-[#D4A94B]" strokeWidth={1.5} />
                 </div>
+                <h3 className="text-base font-bold text-white">{benefit.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/45">{benefit.description}</p>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </Container>
     </section>

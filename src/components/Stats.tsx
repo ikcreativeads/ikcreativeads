@@ -2,27 +2,39 @@
 
 import { motion } from "framer-motion";
 import Container from "./ui/Container";
+import SectionHeading from "./ui/SectionHeading";
 import AnimatedCounter from "./ui/AnimatedCounter";
 import { STATS } from "@/lib/data";
 
 export default function Stats() {
   return (
-    <section className="relative border-y border-white/6 bg-[#0a1120]">
+    <section className="relative section-padding border-t border-white/6">
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4">
+        <SectionHeading
+          eyebrow="Liczby"
+          title={
+            <>
+              Dlaczego{" "}
+              <span className="text-[#D4A94B]">IK Creative Ads</span>
+            </>
+          }
+          description="Efekty naszej pracy widać w liczbach — to one najlepiej pokazują, na co możesz liczyć przy współpracy z nami."
+        />
+
+        <div className="mt-16 grid grid-cols-2 gap-px lg:grid-cols-4 border border-white/6 rounded-2xl overflow-hidden">
           {STATS.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative py-12 px-8 [&:not(:first-child)]:before:absolute [&:not(:first-child)]:before:left-0 [&:not(:first-child)]:before:top-1/4 [&:not(:first-child)]:before:h-1/2 [&:not(:first-child)]:before:w-px [&:not(:first-child)]:before:bg-white/6"
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-[#0E1624] flex flex-col items-center px-4 py-10 text-center"
             >
-              <p className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-black leading-none text-white tabular-nums">
+              <p className="font-display text-4xl font-extrabold text-[#D4A94B] sm:text-5xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="mt-2 text-xs leading-relaxed text-white/35 max-w-[12ch]">
+              <p className="mt-3 text-sm leading-snug text-white/45">
                 {stat.label}
               </p>
             </motion.div>
