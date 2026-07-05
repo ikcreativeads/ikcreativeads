@@ -35,7 +35,7 @@ export default function Portfolio() {
             title={
               <>
                 Realizacje, które{" "}
-                <span className="text-gold-gradient">mówią same za siebie</span>
+                <span className="text-[#D4A94B]">mówią same za siebie</span>
               </>
             }
             description="Zobacz przykładowe projekty zrealizowane dla naszych klientów z różnych branż."
@@ -69,7 +69,7 @@ export default function Portfolio() {
 
                   {/* Play button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#D4A94B] group-hover:scale-105 transition-transform duration-300">
                       <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
                     </div>
                   </div>
@@ -123,7 +123,7 @@ export default function Portfolio() {
                 </button>
 
                 {/* Video embed — 9:16 */}
-                <div className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]" style={{ aspectRatio: "9/16" }}>
+                <div className="relative w-full overflow-hidden rounded-2xl border border-white/10" style={{ aspectRatio: "9/16" }}>
                   <iframe
                     src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
