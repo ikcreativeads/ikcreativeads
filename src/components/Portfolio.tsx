@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, TrendingUp, Instagram } from "lucide-react";
+import { Play, X, TrendingUp, Instagram, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 
@@ -145,6 +145,17 @@ export default function Portfolio() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Zobacz więcej */}
+          <div className="mt-12 text-center">
+            <a
+              href="/portfolio"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4A94B]/30 bg-[#D4A94B]/8 px-8 py-4 text-sm font-semibold text-[#D4A94B] transition-all duration-300 hover:border-[#D4A94B]/60 hover:bg-[#D4A94B]/15 hover:shadow-[0_0_24px_rgba(212,169,75,0.2)]"
+            >
+              Zobacz wszystkie realizacje
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
           </div>
 
         </Container>
