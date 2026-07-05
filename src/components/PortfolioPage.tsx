@@ -67,7 +67,7 @@ const ALL_ITEMS: PortfolioItem[] = [
     type: "youtube",
     videoId: "wSRmpmSvSyQ",
     title: "Rolka reklamowa #2",
-    industry: "beauty",
+    industry: "mechanik",
     result: "Realizacja IK Creative Ads",
   },
 ];
