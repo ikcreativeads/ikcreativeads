@@ -18,7 +18,7 @@ type YoutubeItem = {
 type InstagramItem = {
   id: string;
   type: "instagram";
-  url: string;
+  reelId: string;
   title: string;
   industry: string;
   result: string;
@@ -46,7 +46,7 @@ const VIDEO_ITEMS: VideoItem[] = [
   {
     id: "video-3",
     type: "instagram",
-    url: "https://www.instagram.com/reel/DaVQn2Hs22I/",
+    reelId: "DaVQn2Hs22I",
     title: "Bunkier Barber — Dębica",
     industry: "Instagram Reels",
     result: "94 polubienia · @bunkierbarber",
@@ -54,13 +54,13 @@ const VIDEO_ITEMS: VideoItem[] = [
 ];
 
 export default function Portfolio() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
 
   const handleCardClick = (item: VideoItem) => {
     if (item.type === "youtube") {
-      setActiveVideo(item.videoId);
+      setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
     } else {
-      window.open(item.url, "_blank", "noopener,noreferrer");
+      setActiveEmbed(`https://www.instagram.com/reel/${item.reelId}/embed/`);
     }
   };
 
@@ -99,9 +99,7 @@ export default function Portfolio() {
                           (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
                         }}
                       />
-                      {/* Dark overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
-                      {/* Play button */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
                           <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
@@ -116,6 +114,11 @@ export default function Portfolio() {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/20 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] shadow-[0_0_30px_rgba(131,58,180,0.5)] group-hover:scale-110 transition-transform duration-300">
+                          <Play className="h-6 w-6 fill-white text-white ml-1" />
+                        </div>
+                      </div>
                       <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
                         <Instagram className="h-3 w-3 text-white/80" />
                         <span className="text-[10px] font-semibold text-white/80 uppercase tracking-wider">Instagram</span>
@@ -123,7 +126,7 @@ export default function Portfolio() {
                     </>
                   )}
 
-                  {/* Info overlay (shared) */}
+                  {/* Info overlay */}
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <span className="mb-2 inline-block rounded-full border border-[#D4A94B]/30 bg-[#0e1624]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#E0B95C] backdrop-blur-sm">
                       {video.industry}
@@ -143,16 +146,16 @@ export default function Portfolio() {
         </Container>
       </section>
 
-      {/* YouTube Modal */}
+      {/* Video Modal — obsługuje YouTube i Instagram */}
       <AnimatePresence>
-        {activeVideo && (
+        {activeEmbed && (
           <>
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveVideo(null)}
+              onClick={() => setActiveEmbed(null)}
               className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm"
             />
             <motion.div
@@ -165,14 +168,17 @@ export default function Portfolio() {
             >
               <div className="relative w-full max-w-sm pointer-events-auto">
                 <button
-                  onClick={() => setActiveVideo(null)}
+                  onClick={() => setActiveEmbed(null)}
                   className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white hover:text-[#D4A94B] transition-colors z-10"
                 >
                   <X size={18} />
                 </button>
-                <div className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]" style={{ aspectRatio: "9/16" }}>
+                <div
+                  className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
+                  style={{ aspectRatio: "9/16" }}
+                >
                   <iframe
-                    src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
+                    src={activeEmbed}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="absolute inset-0 w-full h-full"
