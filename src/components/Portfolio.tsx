@@ -53,14 +53,18 @@ const VIDEO_ITEMS: VideoItem[] = [
   },
 ];
 
+type ActiveEmbed =
+  | { kind: "iframe"; src: string }
+  | { kind: "video"; src: string; poster: string };
+
 export default function Portfolio() {
-  const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
+  const [activeEmbed, setActiveEmbed] = useState<ActiveEmbed | null>(null);
 
   const handleCardClick = (item: VideoItem) => {
     if (item.type === "youtube") {
-      setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
+      setActiveEmbed({ kind: "iframe", src: `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1` });
     } else {
-      setActiveEmbed(`https://www.instagram.com/reel/${item.reelId}/embed/`);
+      setActiveEmbed({ kind: "video", src: "/bunkier-barber.mp4", poster: "/bunkier-thumb.webp" });
     }
   };
 
@@ -177,12 +181,23 @@ export default function Portfolio() {
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
                   style={{ aspectRatio: "9/16" }}
                 >
-                  <iframe
-                    src={activeEmbed}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
+                  {activeEmbed.kind === "video" ? (
+                    <video
+                      src={activeEmbed.src}
+                      poster={activeEmbed.poster}
+                      autoPlay
+                      controls
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <iframe
+                      src={activeEmbed.src}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  )}
                 </div>
               </div>
             </motion.div>
