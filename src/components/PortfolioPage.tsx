@@ -30,7 +30,7 @@ type CategoryId = (typeof CATEGORIES)[number]["id"];
 /* ─── Typy elementów ─── */
 type Industry = Exclude<CategoryId, "wszystkie">;
 
-type YoutubeItem = {
+type PortfolioItem = {
   id: string;
   type: "youtube";
   videoId: string;
@@ -40,30 +40,16 @@ type YoutubeItem = {
   result: string;
 };
 
-type VideoItem = {
-  id: string;
-  type: "video";
-  src: string;
-  poster: string;
-  title: string;
-  industry: Industry;
-  client?: string;
-  result: string;
-};
-
-type PortfolioItem = YoutubeItem | VideoItem;
-
 /* ─── Dane portfolio — dodawaj tu kolejne realizacje ─── */
 const ALL_ITEMS: PortfolioItem[] = [
   {
     id: "bunkier-barber",
-    type: "video",
-    src: "/bunkier-barber.mp4",
-    poster: "/bunkier-thumb.webp",
+    type: "youtube",
+    videoId: "xMOYd-LQYSU",
     title: "Bunkier Barber — Dębica",
     industry: "barber",
     client: "@bunkierbarber",
-    result: "94 polubienia · Instagram",
+    result: "94 polubienia · @bunkierbarber",
   },
   {
     id: "rolka-1",
@@ -84,9 +70,7 @@ const ALL_ITEMS: PortfolioItem[] = [
 ];
 
 /* ─── Typ embeda w modalu ─── */
-type ActiveEmbed =
-  | { kind: "iframe"; src: string }
-  | { kind: "video"; src: string; poster: string };
+type ActiveEmbed = string;
 
 /* ─── Etykiety branż ─── */
 const INDUSTRY_LABELS: Record<Industry, string> = {
@@ -117,14 +101,7 @@ export default function PortfolioPage() {
       : ALL_ITEMS.filter((item) => item.industry === activeFilter);
 
   const openEmbed = (item: PortfolioItem) => {
-    if (item.type === "youtube") {
-      setActiveEmbed({
-        kind: "iframe",
-        src: `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`,
-      });
-    } else {
-      setActiveEmbed({ kind: "video", src: item.src, poster: item.poster });
-    }
+    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
   };
 
   return (
@@ -235,22 +212,14 @@ export default function PortfolioPage() {
                   >
                     <div className="relative aspect-[9/16] w-full overflow-hidden">
                       {/* Thumbnail */}
-                      {item.type === "youtube" ? (
-                        <img
-                          src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
-                          alt={item.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`;
-                          }}
-                        />
-                      ) : (
-                        <img
-                          src={item.poster}
-                          alt={item.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      )}
+                      <img
+                        src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
+                        alt={item.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`;
+                        }}
+                      />
 
                       {/* Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/25 to-transparent" />
@@ -315,24 +284,12 @@ export default function PortfolioPage() {
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
                   style={{ aspectRatio: "9/16" }}
                 >
-                  {activeEmbed.kind === "video" ? (
-                    <video
-                      src={activeEmbed.src}
-                      poster={activeEmbed.poster}
-                      autoPlay
-                      muted
-                      controls
-                      playsInline
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  ) : (
-                    <iframe
-                      src={activeEmbed.src}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  )}
+                  <iframe
+                    src={activeEmbed}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 h-full w-full"
+                  />
                 </div>
               </div>
             </motion.div>

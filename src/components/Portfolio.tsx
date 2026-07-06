@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, TrendingUp, Instagram, ArrowRight } from "lucide-react";
+import { Play, X, TrendingUp, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 
-type YoutubeItem = {
+type VideoItem = {
   id: string;
   type: "youtube";
   videoId: string;
@@ -14,17 +14,6 @@ type YoutubeItem = {
   industry: string;
   result: string;
 };
-
-type InstagramItem = {
-  id: string;
-  type: "instagram";
-  reelId: string;
-  title: string;
-  industry: string;
-  result: string;
-};
-
-type VideoItem = YoutubeItem | InstagramItem;
 
 const VIDEO_ITEMS: VideoItem[] = [
   {
@@ -45,27 +34,19 @@ const VIDEO_ITEMS: VideoItem[] = [
   },
   {
     id: "video-3",
-    type: "instagram",
-    reelId: "DaVQn2Hs22I",
+    type: "youtube",
+    videoId: "xMOYd-LQYSU",
     title: "Bunkier Barber — Dębica",
-    industry: "Instagram Reels",
+    industry: "Barber",
     result: "94 polubienia · @bunkierbarber",
   },
 ];
 
-type ActiveEmbed =
-  | { kind: "iframe"; src: string }
-  | { kind: "video"; src: string; poster: string };
-
 export default function Portfolio() {
-  const [activeEmbed, setActiveEmbed] = useState<ActiveEmbed | null>(null);
+  const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
 
   const handleCardClick = (item: VideoItem) => {
-    if (item.type === "youtube") {
-      setActiveEmbed({ kind: "iframe", src: `https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1` });
-    } else {
-      setActiveEmbed({ kind: "video", src: "/bunkier-barber.mp4", poster: "/bunkier-thumb.webp" });
-    }
+    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
   };
 
   return (
@@ -92,43 +73,20 @@ export default function Portfolio() {
                 onClick={() => handleCardClick(video)}
               >
                 <div className="relative aspect-[9/16] w-full overflow-hidden">
-
-                  {video.type === "youtube" ? (
-                    <>
-                      <img
-                        src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
-                        alt={video.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
-                          <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <img
-                        src="/bunkier-thumb.webp"
-                        alt={video.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/20 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] shadow-[0_0_30px_rgba(131,58,180,0.5)] group-hover:scale-110 transition-transform duration-300">
-                          <Play className="h-6 w-6 fill-white text-white ml-1" />
-                        </div>
-                      </div>
-                      <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full bg-black/50 px-2.5 py-1 backdrop-blur-sm">
-                        <Instagram className="h-3 w-3 text-white/80" />
-                        <span className="text-[10px] font-semibold text-white/80 uppercase tracking-wider">Instagram</span>
-                      </div>
-                    </>
-                  )}
+                  <img
+                    src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+                    alt={video.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
+                      <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
+                    </div>
+                  </div>
 
                   {/* Info overlay */}
                   <div className="absolute inset-x-0 bottom-0 p-5">
@@ -141,7 +99,6 @@ export default function Portfolio() {
                       {video.result}
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
@@ -161,7 +118,7 @@ export default function Portfolio() {
         </Container>
       </section>
 
-      {/* Video Modal — obsługuje YouTube i Instagram */}
+      {/* Video Modal */}
       <AnimatePresence>
         {activeEmbed && (
           <>
@@ -192,24 +149,12 @@ export default function Portfolio() {
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
                   style={{ aspectRatio: "9/16" }}
                 >
-                  {activeEmbed.kind === "video" ? (
-                    <video
-                      src={activeEmbed.src}
-                      poster={activeEmbed.poster}
-                      autoPlay
-                      muted
-                      controls
-                      playsInline
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  ) : (
-                    <iframe
-                      src={activeEmbed.src}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    />
-                  )}
+                  <iframe
+                    src={activeEmbed}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
                 </div>
               </div>
             </motion.div>
