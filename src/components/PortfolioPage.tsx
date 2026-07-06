@@ -324,6 +324,7 @@ export default function PortfolioPage() {
                       src={activeEmbed.src}
                       poster={activeEmbed.poster}
                       autoPlay
+                      muted
                       controls
                       playsInline
                       className="absolute inset-0 h-full w-full object-cover"
