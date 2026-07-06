@@ -20,16 +20,16 @@ const VIDEO_ITEMS: VideoItem[] = [
     id: "video-1",
     type: "youtube",
     videoId: "5wOorJQudec",
-    title: "Rolka reklamowa #1",
-    industry: "Social Media",
+    title: "Rolka Mechanik",
+    industry: "Mechanik",
     result: "Realizacja IK Creative Ads",
   },
   {
     id: "video-2",
     type: "youtube",
     videoId: "wSRmpmSvSyQ",
-    title: "Rolka reklamowa #2",
-    industry: "Social Media",
+    title: "Rolka Paznokcie",
+    industry: "Paznokcie",
     result: "Realizacja IK Creative Ads",
   },
   {
@@ -38,7 +38,7 @@ const VIDEO_ITEMS: VideoItem[] = [
     videoId: "xMOYd-LQYSU",
     title: "Bunkier Barber — Dębica",
     industry: "Barber",
-    result: "94 polubienia · @bunkierbarber",
+    result: "Realizacja IK Creative Ads",
   },
 ];
 
