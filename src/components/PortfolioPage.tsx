@@ -221,19 +221,15 @@ export default function PortfolioPage() {
               </p>
             </motion.div>
           ) : (
-            <motion.div
-              layout
-              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            >
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               <AnimatePresence mode="popLayout">
-                {filtered.map((item) => (
+                {filtered.map((item, index) => (
                   <motion.div
                     key={item.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.22, delay: index * 0.05 }}
                     className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30"
                     onClick={() => openEmbed(item)}
                   >
@@ -283,7 +279,7 @@ export default function PortfolioPage() {
                   </motion.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
           )}
         </Container>
       </section>
