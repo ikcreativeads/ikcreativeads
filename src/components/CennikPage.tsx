@@ -268,14 +268,25 @@ export default function CennikPage() {
         </div>
 
         {/* Divider */}
-        <div className="relative mb-20">
+        <div className="relative mb-8">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-white/10" />
           </div>
           <div className="relative flex justify-center">
             <span className="bg-[#0E1624] px-6 text-sm font-bold tracking-[0.2em] uppercase text-[#D4A94B]">
-              Pakiety miesięczne
+              Pakiety abonamentowe
             </span>
+          </div>
+        </div>
+
+        {/* Info abonament */}
+        <div className="reveal mb-10 flex items-start gap-4 rounded-2xl border border-[#D4A94B]/25 bg-[#D4A94B]/6 p-5">
+          <span className="text-2xl shrink-0">📋</span>
+          <div>
+            <p className="font-bold text-white text-sm mb-1">Umowa na minimum 3 miesiące</p>
+            <p className="text-sm text-white/55 leading-relaxed">
+              Pakiety rozliczane są miesięcznie w ramach umowy na min. 3 miesiące — to czas potrzebny, żeby kampania zaczęła przynosić mierzalne efekty. Po tym czasie możliwość przedłużenia lub rezygnacji z miesięcznym wyprzedzeniem.
+            </p>
           </div>
         </div>
 
@@ -308,6 +319,10 @@ export default function CennikPage() {
               <div className="mb-2">
                 <span className="text-5xl font-black text-gold-gradient">{plan.price}</span>
                 <span className="text-white/50 text-sm ml-1">zł / miesiąc</span>
+              </div>
+
+              <div className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold text-white/45">
+                📋 Abonament · min. 3 miesiące
               </div>
 
               <p className="text-xs text-[#D4A94B]/70 font-medium mb-4">{plan.savings}</p>
