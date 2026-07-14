@@ -17,8 +17,29 @@ export default function JsonLd() {
     "paymentAccepted": "Przelew bankowy, gotówka",
     "areaServed": [
       { "@type": "City", "name": "Dębica" },
+      { "@type": "City", "name": "Mielec" },
+      { "@type": "City", "name": "Rzeszów" },
+      { "@type": "City", "name": "Ropczyce" },
+      { "@type": "City", "name": "Stalowa Wola" },
+      { "@type": "City", "name": "Krosno" },
+      { "@type": "City", "name": "Jasło" },
+      { "@type": "City", "name": "Tarnów" },
+      { "@type": "City", "name": "Sędziszów Małopolski" },
+      { "@type": "City", "name": "Strzyżów" },
       { "@type": "AdministrativeArea", "name": "Podkarpacie" },
-      { "@type": "Country", "name": "Polska" },
+      { "@type": "AdministrativeArea", "name": "województwo podkarpackie" },
+    ],
+    "knowsAbout": [
+      "rolki reklamowe",
+      "video marketing",
+      "Instagram Reels",
+      "TikTok",
+      "YouTube Shorts",
+      "reklama w mediach społecznościowych",
+      "fotografia firmowa",
+      "nagrania dronem",
+      "produkcja wideo",
+      "montaż wideo",
     ],
     "address": {
       "@type": "PostalAddress",
@@ -168,6 +189,30 @@ export default function JsonLd() {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Tak — w pakiecie Premium tworzymy pomysły i scenariusze treści. W pozostałych pakietach i realizacjach jednorazowych zawsze doradzamy jak najlepiej pokazać Twoją firmę.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "Na jakim obszarze działacie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Działamy głównie w Dębicy i okolicach — Mielec, Ropczyce, Rzeszów, Sędziszów Małopolski, Stalowa Wola, Krosno, Jasło. Dojeżdżamy do klienta na miejsce nagrania w promieniu 50 km od Dębicy. W szczególnych przypadkach realizujemy projekty na terenie całej Polski.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "Czy rolki reklamowe sprawdzają się dla małych firm?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak — rolki reklamowe to jeden z najskuteczniejszych formatów dla małych i średnich firm. Barbershopy, salony beauty, mechanicy, restauracje, sklepy i usługi lokalne z Dębicy i Podkarpacia notują wzrost zapytań już po pierwszym miesiącu publikacji rolek.",
+        },
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie prowadzenie reklam na Facebooku i Instagramie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, oferujemy usługę Silnik Zasięgu — prowadzenie kampanii Meta Ads (Facebook + Instagram) od 490 zł miesięcznie. Targetujemy lokalnie — Dębica i okolice do 50 km — żeby Twoje rolki trafiały do realnych klientów w pobliżu.",
         },
       },
     ],
