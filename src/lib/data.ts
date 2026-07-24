@@ -337,18 +337,18 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Gotowy materiał dostarczamy w ciągu 48 godzin od sesji nagraniowej. W pakietach miesięcznych ustalamy stały termin co tydzień, dzięki czemu masz pewność regularnego contentu.",
   },
   {
-    question: "Czy pomagacie ze scenariuszem?",
-    answer:
-      "Tak — w pakiecie Partner tworzymy plan publikacji na cały miesiąc. W pozostałych pakietach i realizacjach jednorazowych zawsze doradzamy na konsultacji, jak najlepiej pokazać Twoją firmę.",
-  },
-  {
     question: "Czy nagrywacie na miejscu?",
     answer:
-      "Tak, przyjeżdżamy do Twojej firmy — biura, lokalu, magazynu czy pleneru. Działamy głównie na terenie Dębicy i okolic Podkarpacia.",
+      "Tak, przyjeżdżamy do Twojej firmy — biura, lokalu, magazynu czy pleneru. Działamy na terenie całej Polski.",
   },
   {
-    question: "Czy macie drona?",
+    question: "Czy robicie też strony internetowe?",
     answer:
-      "Tak, oferujemy nagrania i zdjęcia dronem 4K. Rolka z dronem to 250 zł, zdjęcia z drona — 100 zł. W pakiecie Premium dron jest wliczony raz w miesiącu gratis.",
+      "Tak! Projektujemy i budujemy strony od zera — landing page od 699 zł, strona firmowa od 1299 zł, sklep internetowy od 2499 zł. Każda strona jest responsywna, szybka i zoptymalizowana pod Google. Szczegóły znajdziesz w zakładce Strony WWW.",
+  },
+  {
+    question: "Jak długo trwa zrobienie strony internetowej?",
+    answer:
+      "Landing page robimy do 7 dni roboczych, stronę firmową do 14 dni, sklep internetowy do 21 dni. Przed startem pokazujemy projekt graficzny do akceptacji — kodujemy dopiero po Twoim ok.",
   },
 ];
