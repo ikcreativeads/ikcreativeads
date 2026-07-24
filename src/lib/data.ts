@@ -18,6 +18,7 @@ import { InstagramIcon, TikTokIcon } from "@/components/ui/SocialIcons";
 export const NAV_LINKS = [
   { label: "Usługi", href: "/#uslugi" },
   { label: "Portfolio", href: "/#portfolio" },
+  { label: "Strony WWW", href: "/strony-internetowe" },
   { label: "Cennik", href: "/cennik" },
   { label: "Opinie", href: "/#opinie" },
   { label: "FAQ", href: "/#faq" },
