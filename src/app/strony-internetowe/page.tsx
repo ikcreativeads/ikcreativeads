@@ -4,16 +4,16 @@ import Footer from "@/components/Footer";
 import StronaInternetowaPage from "@/components/StronaInternetowaPage";
 
 export const metadata: Metadata = {
-  title: "Strony Internetowe Dębica | Tworzenie Stron WWW dla Firm",
+  title: "Strony Internetowe dla Firm | Tworzenie Stron WWW | IK Creative Ads",
   description:
-    "Tworzenie stron internetowych w Dębicy — landing page od 1500 zł, strona firmowa od 2500 zł, sklep internetowy od 4500 zł. Responsywne, szybkie, zoptymalizowane pod Google. Bezpłatna wycena.",
+    "Tworzenie stron internetowych dla firm — landing page od 699 zł, strona firmowa od 1299 zł, sklep internetowy od 2499 zł. Responsywne, szybkie, zoptymalizowane pod Google. Bezpłatna wycena.",
   alternates: {
     canonical: "https://ikcreativeads.pl/strony-internetowe",
   },
   openGraph: {
-    title: "Strony Internetowe Dębica | IK Creative Ads",
+    title: "Strony Internetowe dla Firm | IK Creative Ads",
     description:
-      "Profesjonalne strony WWW dla firm z Dębicy i Podkarpacia. Landing page, strona firmowa, sklep online. Bezpłatna wycena.",
+      "Profesjonalne strony WWW dla firm. Landing page od 699 zł, strona firmowa od 1299 zł, sklep online od 2499 zł. Bezpłatna wycena.",
     url: "https://ikcreativeads.pl/strony-internetowe",
   },
 };

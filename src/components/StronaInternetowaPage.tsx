@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -11,42 +12,83 @@ import {
   Search,
   ShieldCheck,
   Palette,
-  LayoutTemplate,
-  ShoppingCart,
-  FileText,
+  X,
 } from "lucide-react";
 import Container from "./ui/Container";
 
-const features = [
+type Feature = {
+  icon: React.ElementType;
+  title: string;
+  desc: string;
+  details: string[];
+};
+
+const features: Feature[] = [
   {
     icon: Smartphone,
     title: "Responsywna na telefon",
-    desc: "Ponad 70% ruchu w internecie pochodzi z telefonów. Każda strona działa idealnie na każdym urządzeniu.",
+    desc: "Ponad 70% ruchu pochodzi z telefonów. Każda strona działa idealnie na każdym urządzeniu.",
+    details: [
+      "Testujemy na iPhone, Android i tabletach",
+      "Menu mobilne, przyciski i formularze dopasowane do dotyku",
+      "Obrazki i wideo ładowane w odpowiedniej rozdzielczości",
+      "Google premiuje strony responsywne w wynikach wyszukiwania",
+    ],
   },
   {
     icon: Zap,
     title: "Błyskawiczne ładowanie",
-    desc: "Szybkość strony = więcej klientów. Optymalizujemy każdy element, żeby strona ładowała się w mniej niż 2 sekundy.",
+    desc: "Szybkość strony = więcej klientów. Optymalizujemy każdy element pod czas ładowania.",
+    details: [
+      "Wynik PageSpeed powyżej 90/100",
+      "Kompresja obrazków i plików CSS/JS",
+      "Lazy loading — ładuje tylko to, co widać",
+      "Strona gotowa w mniej niż 2 sekundy",
+    ],
   },
   {
     icon: Search,
     title: "SEO od pierwszego dnia",
-    desc: "Strona zoptymalizowana pod Google — właściwe nagłówki, meta tagi, schema.org i sitemap gotowe od razu.",
+    desc: "Strona zoptymalizowana pod Google — właściwe nagłówki, meta tagi i sitemap gotowe od razu.",
+    details: [
+      "Nagłówki H1–H3 z odpowiednimi słowami kluczowymi",
+      "Meta tytuły i opisy dla każdej podstrony",
+      "Schema.org — Google rozumie Twoją firmę lepiej",
+      "Sitemap.xml i robots.txt gotowe automatycznie",
+    ],
   },
   {
     icon: Palette,
     title: "Projekt dopasowany do marki",
-    desc: "Żadnych gotowców z szablonu. Projekt graficzny tworzony od zera pod Twoją firmę i branżę.",
+    desc: "Żadnych gotowych szablonów. Projekt graficzny tworzony od zera pod Twój biznes.",
+    details: [
+      "Projekt na podstawie Twoich kolorów i logo",
+      "Makieta do akceptacji przed kodowaniem",
+      "Typografia i ikonografia spójna z branżą",
+      "Efekty hover, animacje i przejścia premium",
+    ],
   },
   {
     icon: ShieldCheck,
-    title: "Certyfikat SSL i bezpieczeństwo",
-    desc: "HTTPS, ochrona przed spamem i regularne kopie zapasowe — strona bezpieczna dla Ciebie i klientów.",
+    title: "SSL i bezpieczeństwo",
+    desc: "HTTPS, ochrona przed spamem i kopie zapasowe — bezpiecznie dla Ciebie i klientów.",
+    details: [
+      "Certyfikat SSL (kłódka w pasku adresu) gratis",
+      "Formularz kontaktowy z ochroną antyspamową",
+      "Regularne kopie zapasowe strony",
+      "Aktualizacje systemu CMS w cenie utrzymania",
+    ],
   },
   {
     icon: Globe,
-    title: "Domena i hosting w cenie",
-    desc: "Zajmujemy się całą technikaliami — domena, hosting, poczta firmowa. Ty skupiasz się na biznesie.",
+    title: "Domena i hosting",
+    desc: "Zajmujemy się całą techniką — domena, serwer, poczta firmowa. Ty skupiasz się na biznesie.",
+    details: [
+      "Pomoc przy wyborze i rejestracji domeny",
+      "Serwer w Polsce — szybkość i zgodność z RODO",
+      "Poczta firmowa (imie@twojafirma.pl)",
+      "Wsparcie techniczne po wdrożeniu strony",
+    ],
   },
 ];
 
@@ -55,11 +97,11 @@ const packages = [
     icon: "🪟",
     name: "Landing Page",
     desc: "Jedna mocna strona sprzedażowa",
-    price: "od 1 500 zł",
+    price: "od 699 zł",
     highlight: false,
     features: [
       "Projekt graficzny od zera",
-      "1 strona (sekcje: hero, oferta, opinie, kontakt)",
+      "1 strona (hero, oferta, opinie, kontakt)",
       "Formularz kontaktowy",
       "Responsywność na telefon i tablet",
       "Podstawowe SEO + SSL",
@@ -69,8 +111,8 @@ const packages = [
   {
     icon: "🏢",
     name: "Strona firmowa",
-    desc: "Wizytówka dla Twojej firmy",
-    price: "od 2 500 zł",
+    desc: "Pełna wizytówka Twojej firmy",
+    price: "od 1 299 zł",
     highlight: true,
     features: [
       "Projekt graficzny od zera",
@@ -86,7 +128,7 @@ const packages = [
     icon: "🛒",
     name: "Sklep internetowy",
     desc: "Sprzedawaj online 24/7",
-    price: "od 4 500 zł",
+    price: "od 2 499 zł",
     highlight: false,
     features: [
       "Projekt graficzny od zera",
@@ -108,6 +150,8 @@ const steps = [
 ];
 
 export default function StronaInternetowaPage() {
+  const [activeFeature, setActiveFeature] = useState<Feature | null>(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0E1624] via-[#162235] to-[#0E1624] pt-28 pb-24">
       <Container>
@@ -128,7 +172,7 @@ export default function StronaInternetowaPage() {
           </span>
           <h1 className="mt-3 font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
             Strony internetowe{" "}
-            <span className="text-gold-gradient">dla firm z Dębicy</span>
+            <span className="text-gold-gradient">dla Twojej firmy</span>
           </h1>
           <p className="mt-6 text-lg text-white/55 leading-relaxed max-w-2xl">
             Twoja firma zasługuje na stronę, która działa na telefonie, ładuje się w 2 sekundy i pojawia się wysoko w Google. Projektujemy i budujemy strony od zera — bez gotowych szablonów, bez ukrytych kosztów.
@@ -152,9 +196,7 @@ export default function StronaInternetowaPage() {
 
         {/* Dlaczego strona WWW */}
         <div className="reveal mb-8">
-          <p className="text-xs font-bold tracking-[0.2em] text-[#D4A94B] uppercase mb-3">
-            Dlaczego warto?
-          </p>
+          <p className="text-xs font-bold tracking-[0.2em] text-[#D4A94B] uppercase mb-3">Dlaczego warto?</p>
           <h2 className="text-2xl font-bold text-white">
             Strona internetowa to Twój sprzedawca pracujący 24/7
           </h2>
@@ -163,19 +205,24 @@ export default function StronaInternetowaPage() {
           </p>
         </div>
 
+        {/* Feature cards — klikalne */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-20">
           {features.map((f, i) => (
-            <div
+            <button
               key={f.title}
-              className="reveal rounded-2xl border border-white/8 bg-[#162235]/60 p-6"
+              onClick={() => setActiveFeature(f)}
+              className="reveal text-left rounded-2xl border border-white/8 bg-[#162235]/60 p-6 hover:border-[#D4A94B]/30 transition-colors group cursor-pointer"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4A94B]/10 border border-[#D4A94B]/20">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4A94B]/10 border border-[#D4A94B]/20 group-hover:bg-[#D4A94B]/20 transition-colors">
                 <f.icon className="h-5 w-5 text-[#D4A94B]" />
               </div>
               <h3 className="font-bold text-white mb-1.5">{f.title}</h3>
               <p className="text-sm text-white/50 leading-relaxed">{f.desc}</p>
-            </div>
+              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#D4A94B]/50 group-hover:text-[#D4A94B] transition-colors">
+                Dowiedz się więcej →
+              </span>
+            </button>
           ))}
         </div>
 
@@ -224,10 +271,10 @@ export default function StronaInternetowaPage() {
               </div>
 
               <ul className="space-y-3 flex-1 mb-8">
-                {pkg.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
+                {pkg.features.map((feat) => (
+                  <li key={feat} className="flex items-start gap-3">
                     <Check className="h-4 w-4 text-[#D4A94B] shrink-0 mt-0.5" />
-                    <span className="text-sm text-white/70">{f}</span>
+                    <span className="text-sm text-white/70">{feat}</span>
                   </li>
                 ))}
               </ul>
@@ -292,6 +339,73 @@ export default function StronaInternetowaPage() {
         </div>
 
       </Container>
+
+      {/* Modal — feature details */}
+      <AnimatePresence>
+        {activeFeature && (
+          <>
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveFeature(null)}
+              className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm"
+            />
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0, scale: 0.92, y: 32 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 16 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+            >
+              <div
+                className="relative w-full max-w-md pointer-events-auto rounded-3xl border border-white/10 bg-[#162235] shadow-[0_32px_80px_rgba(0,0,0,0.6)] overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4A94B]/80 to-transparent" />
+                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#D4A94B]/8 to-transparent pointer-events-none" />
+
+                <button
+                  onClick={() => setActiveFeature(null)}
+                  className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-colors"
+                >
+                  <X size={16} />
+                </button>
+
+                <div className="relative p-8">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#D4A94B]/10 border border-[#D4A94B]/20">
+                    <activeFeature.icon className="h-6 w-6 text-[#D4A94B]" />
+                  </div>
+                  <h2 className="text-xl font-extrabold text-white mb-2">{activeFeature.title}</h2>
+                  <p className="text-sm text-white/50 mb-6">{activeFeature.desc}</p>
+
+                  <div className="h-px bg-gradient-to-r from-[#D4A94B]/20 via-white/10 to-transparent mb-6" />
+
+                  <ul className="space-y-3 mb-8">
+                    {activeFeature.details.map((d) => (
+                      <li key={d} className="flex items-start gap-3">
+                        <Check size={16} className="text-[#D4A94B] shrink-0 mt-0.5" />
+                        <span className="text-sm text-white/75">{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href="/#kontakt"
+                    onClick={() => setActiveFeature(null)}
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] px-6 py-4 text-base font-bold text-[#0E1624] hover:shadow-[0_0_30px_rgba(212,169,75,0.4)] transition-all hover:scale-[1.02]"
+                  >
+                    Zapytaj o wycenę
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
