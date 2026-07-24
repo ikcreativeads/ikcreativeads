@@ -18,14 +18,14 @@ export default function Services() {
             eyebrow="Nasze usługi"
             title={
               <>
-                Pełen zakres produkcji{" "}
-                <span className="text-gold-gradient">video reklamowego</span>
+                Wszystko czego potrzebujesz,{" "}
+                <span className="text-gold-gradient">w jednym miejscu</span>
               </>
             }
-            description="Od koncepcji, przez nagranie, po montaż i publikację — kompleksowo zajmujemy się Twoim contentem video."
+            description="Video reklamowe, strony internetowe, reklamy — kompleksowo zajmujemy się obecnością Twojej firmy w internecie."
           />
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>*:last-child:nth-child(3n+1)]:lg:col-start-2">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;
               return (

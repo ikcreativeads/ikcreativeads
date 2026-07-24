@@ -10,6 +10,7 @@ import {
   Building2,
   Scissors,
   Megaphone,
+  Globe,
   type LucideIcon,
 } from "lucide-react";
 import type { ComponentType } from "react";
@@ -201,6 +202,23 @@ export const SERVICES: ServiceItem[] = [
         "Raportowanie wyników co miesiąc",
       ],
       cta: "Umów strategię contentową",
+    },
+  },
+  {
+    icon: Globe,
+    title: "Strony internetowe",
+    description:
+      "Projektujemy i budujemy strony od zera — responsywne, szybkie i zoptymalizowane pod Google.",
+    details: {
+      tagline: "Strona, która sprzedaje przez całą dobę",
+      bullets: [
+        "Landing page od 699 zł, strona firmowa od 1299 zł",
+        "Projekt graficzny dopasowany do Twojej marki",
+        "Responsywna na telefon, tablet i komputer",
+        "SEO, SSL i szybkość ładowania w standardzie",
+        "Panel do samodzielnej edycji treści",
+      ],
+      cta: "Zobacz ofertę stron WWW",
     },
   },
 ];
