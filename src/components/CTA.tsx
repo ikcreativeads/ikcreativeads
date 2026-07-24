@@ -50,12 +50,11 @@ export default function CTA() {
                 Zacznij już dziś
               </span>
               <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl mt-4">
-                Gotowy zdobywać klientów dzięki{" "}
-                <span className="text-gold-gradient">video?</span>
+                Gotowy rozwinąć firmę{" "}
+                <span className="text-gold-gradient">w internecie?</span>
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/60 sm:text-lg max-w-md">
-                Umów bezpłatną konsultację i dowiedz się, jak rolki reklamowe
-                mogą zwiększyć zasięgi i sprzedaż Twojej firmy.
+                Rolki reklamowe, strona internetowa, reklamy — powiedz nam czego potrzebujesz, a my dobierzemy najlepsze rozwiązanie dla Twojego biznesu.
               </p>
 
               <div className="mt-8 space-y-3">
