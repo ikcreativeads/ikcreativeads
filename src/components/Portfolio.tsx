@@ -155,6 +155,9 @@ export default function Portfolio() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
+                <p className="mt-3 text-center text-[11px] text-white/35">
+                  ⚙️ Dla najlepszej jakości kliknij ikonę ustawień w odtwarzaczu i wybierz <span className="text-white/55">1080p</span>
+                </p>
               </div>
             </motion.div>
           </>
