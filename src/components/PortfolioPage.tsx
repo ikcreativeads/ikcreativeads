@@ -101,7 +101,7 @@ export default function PortfolioPage() {
       : ALL_ITEMS.filter((item) => item.industry === activeFilter);
 
   const openEmbed = (item: PortfolioItem) => {
-    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
+    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`);
   };
 
   return (

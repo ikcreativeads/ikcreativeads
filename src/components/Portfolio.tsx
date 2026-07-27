@@ -46,7 +46,7 @@ export default function Portfolio() {
   const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
 
   const handleCardClick = (item: VideoItem) => {
-    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1`);
+    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`);
   };
 
   return (
