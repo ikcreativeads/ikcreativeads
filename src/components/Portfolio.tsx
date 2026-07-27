@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, TrendingUp, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
+import YouTubeEmbed from "./ui/YouTubeEmbed";
 
 type VideoItem = {
   id: string;
@@ -46,7 +47,7 @@ export default function Portfolio() {
   const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
 
   const handleCardClick = (item: VideoItem) => {
-    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`);
+    setActiveEmbed(item.videoId);
   };
 
   return (
@@ -149,10 +150,8 @@ export default function Portfolio() {
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
                   style={{ aspectRatio: "9/16" }}
                 >
-                  <iframe
-                    src={activeEmbed}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                  <YouTubeEmbed
+                    videoId={activeEmbed!}
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, X, TrendingUp, ArrowLeft, VideoOff } from "lucide-react";
 import Container from "./ui/Container";
+import YouTubeEmbed from "./ui/YouTubeEmbed";
 
 /* ─── Kategorie ─── */
 const CATEGORIES = [
@@ -101,7 +102,7 @@ export default function PortfolioPage() {
       : ALL_ITEMS.filter((item) => item.industry === activeFilter);
 
   const openEmbed = (item: PortfolioItem) => {
-    setActiveEmbed(`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0&modestbranding=1&vq=hd1080`);
+    setActiveEmbed(item.videoId);
   };
 
   return (
@@ -284,10 +285,8 @@ export default function PortfolioPage() {
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"
                   style={{ aspectRatio: "9/16" }}
                 >
-                  <iframe
-                    src={activeEmbed}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                  <YouTubeEmbed
+                    videoId={activeEmbed!}
                     className="absolute inset-0 h-full w-full"
                   />
                 </div>
