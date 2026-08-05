@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import Container from "./ui/Container";
 
 export default function CTA() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [form, setForm] = useState({ name: "", phone: "", message: "", rodo: false });
+  const [form, setForm] = useState({ name: "", phone: "", message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,13 +20,12 @@ export default function CTA() {
           name: form.name,
           phone: form.phone,
           message: form.message,
-          rodo: form.rodo,
         }),
       });
 
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", phone: "", message: "", rodo: false });
+        setForm({ name: "", phone: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -46,9 +45,13 @@ export default function CTA() {
           <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Left — text */}
             <div>
-              <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#D4A94B]/30 bg-[#D4A94B]/8 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#D4A94B]">
+                <Sparkles className="h-3.5 w-3.5" />
+                Zacznij już dziś
+              </span>
+              <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl mt-4">
                 Gotowy rozwinąć firmę{" "}
-                <span className="text-[#D4A94B]">w internecie?</span>
+                <span className="text-gold-gradient">w internecie?</span>
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/60 sm:text-lg max-w-md">
                 Rolki reklamowe, strona internetowa, reklamy — powiedz nam czego potrzebujesz, a my dobierzemy najlepsze rozwiązanie dla Twojego biznesu.
@@ -89,7 +92,7 @@ export default function CTA() {
                   </h3>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/75 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Imię i nazwisko *
                     </label>
                     <input
@@ -103,7 +106,7 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/75 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Numer telefonu *
                     </label>
                     <input
@@ -117,7 +120,7 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/75 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Wiadomość
                     </label>
                     <textarea
@@ -128,22 +131,6 @@ export default function CTA() {
                       className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#D4A94B]/50 focus:outline-none focus:bg-white/8 transition-colors resize-none"
                     />
                   </div>
-
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={form.rodo}
-                      onChange={(e) => setForm({ ...form, rodo: e.target.checked })}
-                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/5 accent-[#D4A94B] cursor-pointer"
-                    />
-                    <span className="text-xs text-white/55 leading-relaxed">
-                      Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
-                      <a href="/polityka-prywatnosci" className="text-[#D4A94B]/80 hover:text-[#D4A94B] underline underline-offset-2">
-                        Polityką prywatności
-                      </a>.
-                    </span>
-                  </label>
 
                   {status === "error" && (
                     <p className="text-red-400 text-xs">

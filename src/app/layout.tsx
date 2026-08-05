@@ -1,19 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Barlow_Semi_Condensed } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
 
-const barlow = Barlow({
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const barlowSC = Barlow_Semi_Condensed({
+const poppins = Poppins({
   subsets: ["latin", "latin-ext"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-poppins",
   display: "swap",
 });
@@ -108,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${barlow.variable} ${barlowSC.variable}`}>
+    <html lang="pl" className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <JsonLd />
       </head>

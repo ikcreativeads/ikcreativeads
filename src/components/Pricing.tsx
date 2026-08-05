@@ -66,10 +66,11 @@ export default function Pricing() {
 
       <Container className="relative">
         <SectionHeading
+          eyebrow="Cennik"
           title={
             <>
               Pakiety miesięczne{" "}
-              <span className="text-[#D4A94B]">dopasowane do Ciebie</span>
+              <span className="text-gold-gradient">dopasowane do Ciebie</span>
             </>
           }
           description="Regularna współpraca to niższe koszty i lepsze efekty. Wybierz pakiet i zacznij budować markę przez video."
@@ -101,7 +102,7 @@ export default function Pricing() {
               </div>
 
               <div className="mb-2">
-                <span className="text-5xl font-black text-[#D4A94B]">{plan.price}</span>
+                <span className="text-5xl font-black text-gold-gradient">{plan.price}</span>
                 <span className="text-white/50 text-sm ml-1">zł{plan.period}</span>
               </div>
 
@@ -170,7 +171,7 @@ export default function Pricing() {
             </p>
           </div>
           <div className="shrink-0 text-right">
-            <p className="text-2xl font-black text-[#D4A94B]">od 490 zł</p>
+            <p className="text-2xl font-black text-gold-gradient">od 490 zł</p>
             <p className="text-xs text-white/40">/ miesiąc + budżet reklamowy</p>
           </div>
         </div>
