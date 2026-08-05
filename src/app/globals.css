@@ -76,6 +76,10 @@ html {
   color: transparent;
 }
 
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 /* Section padding helper */
 .section-padding {
   padding-top: clamp(4rem, 10vw, 8rem);
