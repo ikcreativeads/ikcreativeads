@@ -55,21 +55,22 @@ export default function Portfolio() {
       <section id="portfolio" className="relative section-padding bg-dark-blue/40">
         <Container className="relative">
           <SectionHeading
-            eyebrow="Portfolio"
             title={
               <>
-                Realizacje, które{" "}
-                <span className="text-gold-gradient">mówią same za siebie</span>
+                Realizacje,{" "}
+                <span className="text-[#D4A94B]">które mówią same za siebie</span>
               </>
             }
-            description="Zobacz przykładowe projekty zrealizowane dla naszych klientów z różnych branż."
+            description="Zobacz projekty zrealizowane dla naszych klientów."
           />
 
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
             {VIDEO_ITEMS.map((video, index) => (
-              <div
+              <button
                 key={video.id}
-                className="reveal group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer"
+                type="button"
+                aria-label={`Odtwórz: ${video.title}`}
+                className="reveal group relative w-full overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer text-left"
                 style={{ transitionDelay: `${index * 150}ms` }}
                 onClick={() => handleCardClick(video)}
               >
@@ -101,7 +102,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 

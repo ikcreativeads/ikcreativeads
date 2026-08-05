@@ -15,11 +15,10 @@ export default function Services() {
       <section id="uslugi" className="relative section-padding">
         <Container className="relative">
           <SectionHeading
-            eyebrow="Nasze usługi"
             title={
               <>
                 Wszystko czego potrzebujesz,{" "}
-                <span className="text-gold-gradient">w jednym miejscu</span>
+                <span className="text-[#D4A94B]">w jednym miejscu</span>
               </>
             }
             description="Video reklamowe, strony internetowe, reklamy — kompleksowo zajmujemy się obecnością Twojej firmy w internecie."

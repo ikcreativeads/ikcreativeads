@@ -1,28 +1,18 @@
 import Container from "./ui/Container";
-import SectionHeading from "./ui/SectionHeading";
 import { STEPS } from "@/lib/data";
 
 export default function HowWeWork() {
   return (
-    <section
-      id="jak-dzialamy"
-      className="relative section-padding bg-dark-blue/40"
-    >
+    <section id="jak-dzialamy" className="relative py-16 sm:py-20 border-t border-white/5">
       <Container className="relative">
-        <SectionHeading
-          eyebrow="Proces współpracy"
-          title={
-            <>
-              Jak <span className="text-gold-gradient">działamy</span>
-            </>
-          }
-          description="Prosty, sprawdzony proces — od pierwszej rozmowy aż po wymierne wyniki w Twoich kanałach social media."
-        />
+        <p className="mb-10 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
+          Jak działamy
+        </p>
 
-        <div className="relative mt-16">
+        <div className="relative">
           {/* connecting line */}
           <div
-            className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent lg:block"
+            className="absolute left-0 right-0 top-5 hidden h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent lg:block"
             aria-hidden="true"
           />
 
@@ -32,21 +22,14 @@ export default function HowWeWork() {
               return (
                 <div
                   key={step.number}
-                  className="reveal group relative flex flex-col items-center text-center lg:items-start lg:text-left"
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className="reveal flex flex-col items-center text-center"
+                  style={{ transitionDelay: `${index * 80}ms` }}
                 >
-                  <div className="relative z-10 mb-6 flex h-20 w-20 items-center justify-center rounded-2xl glass-strong shadow-gold-glow-sm transition-transform duration-300 group-hover:scale-110 group-hover:shadow-gold-glow">
-                    <Icon className="h-8 w-8 text-gold-warm" strokeWidth={1.5} />
-                    <span className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-gold-gradient font-display text-xs font-extrabold text-navy shadow-gold-glow-sm">
-                      {step.number}
-                    </span>
+                  <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
+                    <Icon className="h-5 w-5 text-gold-warm" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-white">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    {step.description}
-                  </p>
+                  <p className="text-sm font-semibold text-white">{step.title}</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-white/50">{step.description}</p>
                 </div>
               );
             })}

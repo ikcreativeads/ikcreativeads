@@ -304,31 +304,24 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Magdalena Kowalska",
-    role: "Właścicielka studia kosmetycznego",
+    name: "Karolina B.",
+    role: "Salon paznokci, Dębica",
     content:
-      "Współpraca z IK Creative Ads to najlepsza inwestycja marketingowa, jaką podjęłam w tym roku. Rolki, które dla nas nagrali, realnie zwiększyły liczbę zapytań o zabiegi.",
+      "Byłam sceptyczna — myślałam, że rolki to tylko dla dużych firm. Po pierwszym filmiku dostałam 3 nowe klientki z Instagrama w ciągu tygodnia. Teraz mam stały pakiet i nie wyobrażam sobie bez tego marketingu.",
     rating: 5,
   },
   {
-    name: "Tomasz Nowak",
-    role: "Manager sieci restauracji",
+    name: "Mariusz W.",
+    role: "Warsztat samochodowy, okolice Mielca",
     content:
-      "Profesjonalizm na każdym etapie — od scenariusza po montaż. Klienci sami pytają, gdzie widzieli nasze video. Zdecydowanie polecam każdej firmie z branży gastronomicznej.",
+      "Karol przyjeżdża, nagrywa bez zbędnego hałasu i zawsze trafia w klimat. Klip wyglądał lepiej niż spodziewałem się po takiej cenie. Polecam każdemu, kto chce żeby firma była widoczna w necie.",
     rating: 5,
   },
   {
-    name: "Anna Wiśniewska",
-    role: "Dyrektor marketingu, sieć fitness klubów",
+    name: "Anna M.",
+    role: "Gabinet fizjoterapii, Rzeszów",
     content:
-      "Zespół IK Creative Ads rozumie social media lepiej niż niejedna agencja. Wyniki kampanii przeszły nasze oczekiwania, a sam proces współpracy był bardzo sprawny.",
-    rating: 5,
-  },
-  {
-    name: "Piotr Zieliński",
-    role: "CEO, firma deweloperska",
-    content:
-      "Materiały video podniosły jakość naszej komunikacji o klasę wyżej. Otrzymaliśmy konkretne leady jeszcze w pierwszym tygodniu kampanii.",
+      "Zaufanie w pracy z ciałem buduje się długo — dobry film to przyspiesza. Materiał który zrobili jest spokojny, profesjonalny i dokładnie taki jak chciałam. Nowi pacjenci piszą, że widzieli mnie na Instagramie.",
     rating: 5,
   },
 ];

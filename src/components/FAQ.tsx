@@ -14,14 +14,13 @@ export default function FAQ() {
     <section id="faq" className="relative section-padding">
       <Container className="relative">
         <SectionHeading
-          eyebrow="FAQ"
           title={
             <>
               Najczęściej zadawane{" "}
-              <span className="text-gold-gradient">pytania</span>
+              <span className="text-white">pytania</span>
             </>
           }
-          description="Masz inne pytanie? Skontaktuj się z nami — chętnie odpowiemy na wszystkie wątpliwości."
+          description="Masz inne pytanie? Skontaktuj się z nami — chętnie odpowiemy."
         />
 
         <div className="mx-auto mt-16 max-w-3xl divide-y divide-white/5 rounded-3xl border border-white/5 bg-charcoal-blue/20">
