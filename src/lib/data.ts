@@ -98,6 +98,7 @@ export interface ServiceItem {
     tagline: string;
     bullets: string[];
     cta: string;
+    ctaHref?: string;
   };
 }
 
@@ -219,6 +220,7 @@ export const SERVICES: ServiceItem[] = [
         "Panel do samodzielnej edycji treści",
       ],
       cta: "Zobacz ofertę stron WWW",
+      ctaHref: "/strony-internetowe",
     },
   },
 ];

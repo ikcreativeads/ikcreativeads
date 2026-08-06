@@ -105,7 +105,7 @@ export default function ServiceModal({ service, onClose }: Props) {
 
                 {/* CTA */}
                 <a
-                  href="#kontakt"
+                  href={service.details.ctaHref ?? "#kontakt"}
                   onClick={onClose}
                   className="mt-8 group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] px-6 py-4 text-base font-bold text-[#0E1624] hover:shadow-[0_0_30px_rgba(212,169,75,0.4)] transition-all hover:scale-[1.02]"
                 >
