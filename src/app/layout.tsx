@@ -1,19 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
 
-const inter = Inter({
+const workSans = Work_Sans({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const poppins = Poppins({
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-work",
   display: "swap",
 });
 
@@ -107,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="pl" className={workSans.variable}>
       <head>
         <JsonLd />
       </head>
