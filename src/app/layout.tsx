@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Work_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
 
-const workSans = Work_Sans({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-work",
   display: "swap",
 });
@@ -101,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className={workSans.variable}>
+    <html lang="pl" className={plusJakarta.variable}>
       <head>
         <JsonLd />
       </head>
