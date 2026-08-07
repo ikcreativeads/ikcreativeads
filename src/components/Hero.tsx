@@ -94,6 +94,20 @@ export default function Hero() {
           </span>
         </h1>
 
+        {/* Logo na mobile — między nagłówkiem a CTA */}
+        <div className="flex justify-start py-10 lg:hidden">
+          <div
+            className="animate-float"
+            style={{ width: 160, height: 160, borderRadius: "50%", overflow: "hidden" }}
+          >
+            <img
+              src="/logo.png"
+              alt="IK Creative Ads"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+        </div>
+
         {/* Dół — opis + CTA */}
         <div>
           <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-white/45">
