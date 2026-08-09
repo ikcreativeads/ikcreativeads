@@ -21,7 +21,6 @@ export const NAV_LINKS = [
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Strony WWW", href: "/strony-internetowe" },
   { label: "Rolki reklamowe", href: "/cennik" },
-  { label: "Opinie", href: "/#opinie" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -225,6 +224,9 @@ export const SERVICES: ServiceItem[] = [
   },
 ];
 
+// Fikcyjne PORTFOLIO_ITEMS, STATS i TESTIMONIALS usunięte 2026-08-09 (audyt):
+// prawdziwe realizacje są w Portfolio.tsx/PortfolioPage.tsx; sekcje statystyk
+// i opinii wrócą, gdy będą realne liczby i opinie klientów (Google).
 export interface PortfolioItem {
   id: string;
   title: string;
@@ -232,108 +234,6 @@ export interface PortfolioItem {
   result: string;
   thumbnail: string;
 }
-
-export const PORTFOLIO_ITEMS: PortfolioItem[] = [
-  {
-    id: "fitness-club",
-    title: "Kampania video dla klubu fitness",
-    industry: "Fitness & Wellness",
-    result: "+180% wyświetleń w 30 dni",
-    thumbnail:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: "restauracja",
-    title: "Seria rolek dla restauracji premium",
-    industry: "Gastronomia",
-    result: "+65 nowych rezerwacji / mies.",
-    thumbnail:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: "kosmetyki",
-    title: "Promocja linii kosmetyków naturalnych",
-    industry: "Beauty & Cosmetics",
-    result: "+220% zasięgu organicznego",
-    thumbnail:
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: "nieruchomosci",
-    title: "Prezentacje inwestycji deweloperskich",
-    industry: "Nieruchomości",
-    result: "120 leadów z jednej kampanii",
-    thumbnail:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: "ecommerce",
-    title: "Rolki produktowe dla sklepu online",
-    industry: "E-commerce",
-    result: "+38% konwersji ze Stories",
-    thumbnail:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: "salon-urody",
-    title: "Budowanie marki osobistej salonu urody",
-    industry: "Beauty Salon",
-    result: "+4 200 nowych obserwujących",
-    thumbnail:
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=800&auto=format&fit=crop",
-  },
-];
-
-export interface StatItem {
-  value: number;
-  suffix: string;
-  label: string;
-}
-
-export const STATS: StatItem[] = [
-  { value: 30, suffix: "+", label: "wykonanych materiałów video" },
-  { value: 15, suffix: "+", label: "zadowolonych klientów" },
-  { value: 500, suffix: "K+", label: "wyświetleń wygenerowanych dla klientów" },
-  { value: 98, suffix: "%", label: "klientów poleca naszą współpracę" },
-];
-
-export interface Testimonial {
-  name: string;
-  role: string;
-  content: string;
-  rating: number;
-}
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    name: "Magdalena Kowalska",
-    role: "Właścicielka studia kosmetycznego",
-    content:
-      "Współpraca z IK Creative Ads to najlepsza inwestycja marketingowa, jaką podjęłam w tym roku. Rolki, które dla nas nagrali, realnie zwiększyły liczbę zapytań o zabiegi.",
-    rating: 5,
-  },
-  {
-    name: "Tomasz Nowak",
-    role: "Manager sieci restauracji",
-    content:
-      "Profesjonalizm na każdym etapie — od scenariusza po montaż. Klienci sami pytają, gdzie widzieli nasze video. Zdecydowanie polecam każdej firmie z branży gastronomicznej.",
-    rating: 5,
-  },
-  {
-    name: "Anna Wiśniewska",
-    role: "Dyrektor marketingu, sieć fitness klubów",
-    content:
-      "Zespół IK Creative Ads rozumie social media lepiej niż niejedna agencja. Wyniki kampanii przeszły nasze oczekiwania, a sam proces współpracy był bardzo sprawny.",
-    rating: 5,
-  },
-  {
-    name: "Piotr Zieliński",
-    role: "CEO, firma deweloperska",
-    content:
-      "Materiały video podniosły jakość naszej komunikacji o klasę wyżej. Otrzymaliśmy konkretne leady jeszcze w pierwszym tygodniu kampanii.",
-    rating: 5,
-  },
-];
 
 export interface FaqItem {
   question: string;

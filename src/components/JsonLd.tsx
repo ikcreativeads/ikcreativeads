@@ -131,12 +131,8 @@ export default function JsonLd() {
         },
       ],
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "15",
-      "bestRating": "5",
-    },
+    // aggregateRating usunięte 2026-08-09 — wróci, gdy będą prawdziwe opinie
+    // Google (fikcyjna ocena w schema.org grozi karą ręczną od Google).
   };
 
   const faqPage = {
