@@ -41,6 +41,38 @@ const VIDEO_ITEMS: VideoItem[] = [
     industry: "Barber",
     result: "Realizacja IK Creative Ads",
   },
+  {
+    id: "video-4",
+    type: "youtube",
+    videoId: "pVyOKWJKGrk",
+    title: "Rolka reklamowa",
+    industry: "Realizacja",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "video-5",
+    type: "youtube",
+    videoId: "5brwXpCXqMY",
+    title: "Rolka reklamowa",
+    industry: "Realizacja",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "video-6",
+    type: "youtube",
+    videoId: "_QUNaurcqYo",
+    title: "Rolka reklamowa",
+    industry: "Realizacja",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "video-7",
+    type: "youtube",
+    videoId: "LAggsiBsjVg",
+    title: "Rolka reklamowa",
+    industry: "Realizacja",
+    result: "Realizacja IK Creative Ads",
+  },
 ];
 
 export default function Portfolio() {

@@ -68,6 +68,38 @@ const ALL_ITEMS: PortfolioItem[] = [
     industry: "mechanik",
     result: "Realizacja IK Creative Ads",
   },
+  {
+    id: "rolka-4",
+    type: "youtube",
+    videoId: "pVyOKWJKGrk",
+    title: "Rolka reklamowa",
+    industry: "beauty",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "rolka-5",
+    type: "youtube",
+    videoId: "5brwXpCXqMY",
+    title: "Rolka reklamowa",
+    industry: "beauty",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "rolka-6",
+    type: "youtube",
+    videoId: "_QUNaurcqYo",
+    title: "Rolka reklamowa",
+    industry: "beauty",
+    result: "Realizacja IK Creative Ads",
+  },
+  {
+    id: "rolka-7",
+    type: "youtube",
+    videoId: "LAggsiBsjVg",
+    title: "Rolka reklamowa",
+    industry: "beauty",
+    result: "Realizacja IK Creative Ads",
+  },
 ];
 
 /* ─── Typ embeda w modalu ─── */
