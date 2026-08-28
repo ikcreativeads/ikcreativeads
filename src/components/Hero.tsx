@@ -87,10 +87,10 @@ export default function Hero() {
             color: "white",
           }}
         >
-          <span className="block">tworzymy</span>
-          <span className="block">rolki</span>
+          <span className="block">rozrastamy</span>
+          <span className="block">twoją firmę</span>
           <span className="block" style={{ color: "#D4A94B" }}>
-            reklamowe.
+            w internecie.
           </span>
         </h1>
 
