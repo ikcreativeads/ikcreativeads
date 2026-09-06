@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
+import MobileNav from "@/components/ui/MobileNav";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
@@ -108,6 +109,7 @@ export default function RootLayout({
       <body className="bg-navy text-white font-sans antialiased overflow-x-hidden">
         <RevealObserver />
         {children}
+        <MobileNav />
       </body>
     </html>
   );
