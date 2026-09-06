@@ -43,6 +43,54 @@ const VIDEO_ITEMS: VideoItem[] = [
   },
 ];
 
+function VideoCard({
+  video,
+  onClick,
+  className = "",
+}: {
+  video: VideoItem;
+  onClick: () => void;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer ${className}`}
+      onClick={onClick}
+    >
+      <div className="relative aspect-[9/16] w-full overflow-hidden">
+        <img
+          src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+          alt={video.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
+
+        {/* Play button */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
+            <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
+          </div>
+        </div>
+
+        {/* Info overlay */}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <span className="mb-2 inline-block rounded-full border border-[#D4A94B]/30 bg-[#0e1624]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#E0B95C] backdrop-blur-sm">
+            {video.industry}
+          </span>
+          <h3 className="font-bold text-white text-base">{video.title}</h3>
+          <div className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
+            <TrendingUp className="h-4 w-4" />
+            {video.result}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const [activeEmbed, setActiveEmbed] = useState<string | null>(null);
 
@@ -64,49 +112,66 @@ export default function Portfolio() {
             }
             description="Zobacz przykładowe projekty zrealizowane dla naszych klientów z różnych branż."
           />
+        </Container>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
+        {/* ── Mobile: horizontal snap carousel ── */}
+        <div className="mt-10 sm:hidden">
+          <div
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2"
+            style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem", scrollPaddingLeft: "1.5rem" }}
+          >
+            {VIDEO_ITEMS.map((video) => (
+              <div
+                key={video.id}
+                className="snap-start shrink-0"
+                style={{ width: "72vw", maxWidth: "280px" }}
+              >
+                <VideoCard video={video} onClick={() => handleCardClick(video)} />
+              </div>
+            ))}
+
+            {/* "Więcej" card */}
+            <div
+              className="snap-start shrink-0 flex flex-col items-center justify-center rounded-3xl border border-[#D4A94B]/20 bg-[#D4A94B]/5"
+              style={{ width: "72vw", maxWidth: "280px", aspectRatio: "9/16" }}
+            >
+              <div className="text-center px-6">
+                <p className="text-[#D4A94B] font-bold text-lg mb-2">Zobacz więcej</p>
+                <p className="text-white/40 text-sm mb-6">Przeglądaj wszystkie realizacje</p>
+                <a
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#D4A94B]/15 border border-[#D4A94B]/30 px-5 py-3 text-sm font-semibold text-[#D4A94B]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Portfolio
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll hint */}
+          <p className="mt-3 text-center text-xs text-white/25 tracking-wide">
+            przesuń aby zobaczyć więcej →
+          </p>
+        </div>
+
+        {/* ── Desktop: grid ── */}
+        <Container className="relative">
+          <div className="hidden sm:grid mt-12 gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
             {VIDEO_ITEMS.map((video, index) => (
               <div
                 key={video.id}
-                className="reveal group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer"
+                className="reveal"
                 style={{ transitionDelay: `${index * 150}ms` }}
-                onClick={() => handleCardClick(video)}
               >
-                <div className="relative aspect-[9/16] w-full overflow-hidden">
-                  <img
-                    src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
-                    alt={video.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
-                      <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
-                    </div>
-                  </div>
-
-                  {/* Info overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-5">
-                    <span className="mb-2 inline-block rounded-full border border-[#D4A94B]/30 bg-[#0e1624]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#E0B95C] backdrop-blur-sm">
-                      {video.industry}
-                    </span>
-                    <h3 className="font-bold text-white text-base">{video.title}</h3>
-                    <div className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
-                      <TrendingUp className="h-4 w-4" />
-                      {video.result}
-                    </div>
-                  </div>
-                </div>
+                <VideoCard video={video} onClick={() => handleCardClick(video)} />
               </div>
             ))}
           </div>
 
-          {/* Zobacz więcej */}
-          <div className="mt-12 text-center">
+          {/* Zobacz więcej — desktop */}
+          <div className="hidden sm:block mt-12 text-center">
             <a
               href="/portfolio"
               className="group inline-flex items-center gap-2.5 rounded-full border border-[#D4A94B]/30 bg-[#D4A94B]/8 px-8 py-4 text-sm font-semibold text-[#D4A94B] transition-all duration-300 hover:border-[#D4A94B]/60 hover:bg-[#D4A94B]/15 hover:shadow-[0_0_24px_rgba(212,169,75,0.2)]"
@@ -116,6 +181,16 @@ export default function Portfolio() {
             </a>
           </div>
 
+          {/* Zobacz więcej — mobile (pod karuzelą) */}
+          <div className="sm:hidden mt-4 text-center">
+            <a
+              href="/portfolio"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#D4A94B]"
+            >
+              Wszystkie realizacje
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </Container>
       </section>
 
@@ -156,7 +231,8 @@ export default function Portfolio() {
                   />
                 </div>
                 <p className="mt-3 text-center text-[11px] text-white/35">
-                  ⚙️ Dla najlepszej jakości kliknij ikonę ustawień w odtwarzaczu i wybierz <span className="text-white/55">1080p</span>
+                  ⚙️ Dla najlepszej jakości kliknij ikonę ustawień i wybierz{" "}
+                  <span className="text-white/55">1080p</span>
                 </p>
               </div>
             </motion.div>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -6,7 +6,7 @@ export default function Hero() {
       className="relative overflow-hidden bg-[#0e1624]"
       style={{ minHeight: "100svh" }}
     >
-      {/* Pionowe pasy — jak w screenie */}
+      {/* Pionowe pasy */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden="true"
@@ -28,7 +28,6 @@ export default function Hero() {
           height: 660,
           borderRadius: "50%",
           border: "1px solid rgba(255,255,255,0.07)",
-          pointerEvents: "none",
         }}
       >
         <div
@@ -45,23 +44,15 @@ export default function Hero() {
         />
       </div>
 
-      {/* Logo unoszące się */}
+      {/* Logo desktop */}
       <div
         className="pointer-events-none absolute hidden lg:block"
         aria-hidden="true"
-        style={{
-          top: "calc(50% - 190px)",
-          right: "7%",
-        }}
+        style={{ top: "calc(50% - 190px)", right: "7%" }}
       >
         <div
           className="animate-float"
-          style={{
-            width: 380,
-            height: 380,
-            borderRadius: "50%",
-            overflow: "hidden",
-          }}
+          style={{ width: 380, height: 380, borderRadius: "50%", overflow: "hidden" }}
         >
           <img
             src="/logo.png"
@@ -72,17 +63,16 @@ export default function Hero() {
       </div>
 
       {/* Treść */}
-      <div className="relative flex min-h-[100svh] flex-col justify-between px-6 pb-14 pt-28 sm:px-10 lg:px-14 lg:pb-20 lg:pt-36">
+      <div className="relative flex min-h-[100svh] flex-col justify-between px-6 pb-20 pt-24 sm:px-10 lg:px-14 lg:pb-20 lg:pt-36">
 
-        {/* Wielki nagłówek — lewo */}
+        {/* Nagłówek */}
         <h1
           className="max-w-full lg:max-w-[52%]"
           style={{
-            fontFamily:
-              '"Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif',
+            fontFamily: '"Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif',
             fontWeight: 300,
-            fontSize: "clamp(3rem, 9.5vw, 11rem)",
-            lineHeight: 0.88,
+            fontSize: "clamp(2.75rem, 9.5vw, 11rem)",
+            lineHeight: 0.9,
             letterSpacing: "-0.025em",
             color: "white",
           }}
@@ -94,11 +84,11 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Logo na mobile — między nagłówkiem a CTA */}
-        <div className="flex justify-start py-10 lg:hidden">
+        {/* Logo mobile */}
+        <div className="flex justify-start py-8 lg:hidden">
           <div
             className="animate-float"
-            style={{ width: 160, height: 160, borderRadius: "50%", overflow: "hidden" }}
+            style={{ width: 140, height: 140, borderRadius: "50%", overflow: "hidden" }}
           >
             <img
               src="/logo.png"
@@ -108,27 +98,30 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Dół — opis + CTA */}
+        {/* Opis + CTA */}
         <div>
           <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-white/45">
-            Profesjonalne materiały video dla firm z Podkarpacia. Nagrywamy,
-            montujemy i dostarczamy w&nbsp;48&nbsp;godziny.
+            Rolki reklamowe, strony WWW i social media dla firm z Podkarpacia.
+            Dostarczamy w&nbsp;48&nbsp;godzin.
           </p>
-          <div className="flex flex-wrap items-center gap-5">
+          <div className="flex flex-wrap items-center gap-4">
+            {/* Primary CTA — portfolio */}
             <a
-              href="#kontakt"
-              className="inline-flex items-center gap-2.5 rounded-full bg-[#D4A94B] px-6 py-3.5 text-sm font-semibold text-[#0e1624] transition-all hover:bg-[#E0B95C]"
+              href="#portfolio"
+              className="inline-flex items-center gap-2.5 rounded-full bg-[#D4A94B] px-6 py-3.5 text-sm font-semibold text-[#0e1624] transition-all hover:bg-[#E0B95C] active:scale-95"
             >
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0e1624]/20">
                 <ArrowUpRight className="h-3 w-3" />
               </span>
-              Darmowa konsultacja
+              Zobacz portfolio
             </a>
+            {/* Secondary CTA — wycena */}
             <a
-              href="#portfolio"
-              className="text-sm font-medium text-white/40 transition-colors hover:text-white"
+              href="#kontakt"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/40 transition-colors hover:text-white"
             >
-              Zobacz realizacje
+              Bezpłatna wycena
+              <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>

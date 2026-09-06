@@ -186,6 +186,23 @@ html {
 }
 
 
+/* ─── Hide scrollbar utility ─── */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Mobile section padding — tighter on small screens ─── */
+@media (max-width: 640px) {
+  .section-padding {
+    padding-top: clamp(2.5rem, 8vw, 4rem);
+    padding-bottom: clamp(2.5rem, 8vw, 4rem);
+  }
+}
+
 /* Mobile: wyłącz tylko ciężkie efekty GPU, zachowaj animacje wejścia */
 @media (max-width: 768px) {
   .glass,
