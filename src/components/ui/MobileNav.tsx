@@ -11,8 +11,8 @@ type NavItem = {
 };
 
 const NAV: NavItem[] = [
-  { label: "Portfolio", href: "#portfolio", icon: Play },
-  { label: "Cennik",    href: "#cennik",    icon: CreditCard },
+  { label: "Portfolio", href: "/portfolio", icon: Play },
+  { label: "Cennik",    href: "/cennik",    icon: CreditCard },
   { label: "Usługi",   href: "#uslugi",    icon: Layers },
   { label: "Kontakt",  href: "#kontakt",   icon: Phone, gold: true },
 ];

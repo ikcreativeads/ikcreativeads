@@ -118,8 +118,8 @@ const bottomNotes = [
 ];
 
 export default function Pricing() {
-  /* Mobile order: popular first */
-  const mobilePlans = [plans[1], plans[0], plans[2]];
+  /* Mobile order: cheapest first */
+  const mobilePlans = plans;
 
   return (
     <section id="cennik" className="relative section-padding overflow-hidden">
@@ -139,9 +139,9 @@ export default function Pricing() {
       </Container>
 
       {/* ── Mobile: horizontal snap carousel ── */}
-      <div className="mt-10 lg:hidden">
+      <div className="mt-6 lg:hidden">
         <div
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none pt-6 pb-2"
           style={{ paddingLeft: "1.5rem", paddingRight: "1.5rem", scrollPaddingLeft: "1.5rem" }}
         >
           {mobilePlans.map((plan, index) => (
