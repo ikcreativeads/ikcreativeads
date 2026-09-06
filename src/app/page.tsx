@@ -8,8 +8,6 @@ import HowWeWork from "@/components/HowWeWork";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import MobileNav from "@/components/ui/MobileNav";
-
 export default function Home() {
   return (
     <>
@@ -25,7 +23,6 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
-      <MobileNav />
     </>
   );
 }
