@@ -1,13 +1,21 @@
 "use client";
 
+import React from "react";
 import { Play, CreditCard, Layers, Phone } from "lucide-react";
 
-const NAV = [
+type NavItem = {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number; style?: React.CSSProperties }>;
+  gold?: boolean;
+};
+
+const NAV: NavItem[] = [
   { label: "Portfolio", href: "#portfolio", icon: Play },
   { label: "Cennik",    href: "#cennik",    icon: CreditCard },
   { label: "Usługi",   href: "#uslugi",    icon: Layers },
   { label: "Kontakt",  href: "#kontakt",   icon: Phone, gold: true },
-] as const;
+];
 
 export default function MobileNav() {
   return (
