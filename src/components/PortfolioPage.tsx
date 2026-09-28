@@ -22,8 +22,9 @@ const CATEGORIES = [
   { id: "fotograf",    label: "Fotograf" },
   { id: "hotel",       label: "Hotel" },
   { id: "jubiler",     label: "Jubiler" },
-  { id: "wnetrza",     label: "Wnętrza" },
-  { id: "szkola",      label: "Szkoła jazdy" },
+  { id: "wnetrza",          label: "Wnętrza" },
+  { id: "szkola",           label: "Szkoła jazdy" },
+  { id: "fizjoterapeuta",   label: "Fizjoterapeuta" },
 ] as const;
 
 type CategoryId = (typeof CATEGORIES)[number]["id"];
@@ -100,6 +101,14 @@ const ALL_ITEMS: PortfolioItem[] = [
     industry: "beauty",
     result: "Realizacja IK Creative Ads",
   },
+  {
+    id: "rolka-fizjo-1",
+    type: "youtube",
+    videoId: "mysvLz8oBBQ",
+    title: "Rolka reklamowa — Fizjoterapeuta",
+    industry: "fizjoterapeuta",
+    result: "Realizacja IK Creative Ads",
+  },
 ];
 
 /* ─── Typ embeda w modalu ─── */
@@ -120,8 +129,9 @@ const INDUSTRY_LABELS: Record<Industry, string> = {
   fotograf:     "Fotograf",
   hotel:        "Hotel",
   jubiler:      "Jubiler",
-  wnetrza:      "Wnętrza",
-  szkola:       "Szkoła jazdy",
+  wnetrza:          "Wnętrza",
+  szkola:           "Szkoła jazdy",
+  fizjoterapeuta:   "Fizjoterapeuta",
 };
 
 export default function PortfolioPage() {
