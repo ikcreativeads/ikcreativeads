@@ -45,17 +45,17 @@ const VIDEO_ITEMS: VideoItem[] = [
 
 function VideoCard({
   video,
-  onClick,
+  onPlayClick,
   className = "",
 }: {
   video: VideoItem;
-  onClick: () => void;
+  onPlayClick: () => void;
   className?: string;
 }) {
   return (
-    <div
-      className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer ${className}`}
-      onClick={onClick}
+    <a
+      href="/portfolio"
+      className={`group relative overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 cursor-pointer block ${className}`}
     >
       <div className="relative aspect-[9/16] w-full overflow-hidden">
         <img
@@ -68,11 +68,15 @@ function VideoCard({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0e1624] via-[#0e1624]/30 to-transparent" />
 
-        {/* Play button */}
+        {/* Play button — otwiera modal, nie przechodzi do portfolio */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300">
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); onPlayClick(); }}
+            className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] shadow-[0_0_30px_rgba(212,169,75,0.5)] group-hover:scale-110 transition-transform duration-300"
+            aria-label="Odtwórz wideo"
+          >
             <Play className="h-6 w-6 fill-[#0e1624] text-[#0e1624] ml-1" />
-          </div>
+          </button>
         </div>
 
         {/* Info overlay */}
@@ -87,7 +91,7 @@ function VideoCard({
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -126,7 +130,7 @@ export default function Portfolio() {
                 className="snap-start shrink-0"
                 style={{ width: "72vw", maxWidth: "280px" }}
               >
-                <VideoCard video={video} onClick={() => handleCardClick(video)} />
+                <VideoCard video={video} onPlayClick={() => handleCardClick(video)} />
               </div>
             ))}
 
@@ -165,7 +169,7 @@ export default function Portfolio() {
                 className="reveal"
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <VideoCard video={video} onClick={() => handleCardClick(video)} />
+                <VideoCard video={video} onPlayClick={() => handleCardClick(video)} />
               </div>
             ))}
           </div>

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, TrendingUp, ArrowLeft, VideoOff } from "lucide-react";
+import { Play, X, TrendingUp, ArrowLeft, VideoOff, ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "./ui/Container";
 import YouTubeEmbed from "./ui/YouTubeEmbed";
 
@@ -137,6 +137,13 @@ const INDUSTRY_LABELS: Record<Industry, string> = {
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState<CategoryId>("wszystkie");
   const [activeEmbed, setActiveEmbed] = useState<ActiveEmbed | null>(null);
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollFilters = (dir: "left" | "right") => {
+    const el = filterScrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "right" ? 200 : -200, behavior: "smooth" });
+  };
 
   const filtered =
     activeFilter === "wszystkie"
@@ -183,8 +190,21 @@ export default function PortfolioPage() {
 
       {/* ── Filtry ── */}
       <section className="sticky top-20 z-30 border-b border-white/6 bg-[#0e1624]/90 backdrop-blur-xl">
-        <Container>
-          <div className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-none">
+        <div className="relative flex items-center">
+          {/* Strzałka lewa */}
+          <button
+            onClick={() => scrollFilters("left")}
+            className="hidden sm:flex absolute left-0 z-10 h-full items-center justify-center px-3 bg-gradient-to-r from-[#0e1624] to-transparent"
+            aria-label="Przewiń lewo"
+          >
+            <ChevronLeft className="h-5 w-5 text-white/50 hover:text-[#D4A94B] transition-colors" />
+          </button>
+
+          <div
+            ref={filterScrollRef}
+            className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-none w-full"
+            style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
+          >
             {CATEGORIES.map((cat) => {
               const count =
                 cat.id === "wszystkie"
@@ -216,7 +236,16 @@ export default function PortfolioPage() {
               );
             })}
           </div>
-        </Container>
+
+          {/* Strzałka prawa */}
+          <button
+            onClick={() => scrollFilters("right")}
+            className="hidden sm:flex absolute right-0 z-10 h-full items-center justify-center px-3 bg-gradient-to-l from-[#0e1624] to-transparent"
+            aria-label="Przewiń prawo"
+          >
+            <ChevronRight className="h-5 w-5 text-white/50 hover:text-[#D4A94B] transition-colors" />
+          </button>
+        </div>
       </section>
 
       {/* ── Grid ── */}
