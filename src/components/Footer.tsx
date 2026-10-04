@@ -121,10 +121,10 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-white/40 sm:flex-row">
           <p>&copy; {year} IK Creative Ads. Wszelkie prawa zastrzeżone.</p>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-gold-warm">
+            <a href="/polityka-prywatnosci" className="transition-colors hover:text-gold-warm">
               Polityka prywatności
             </a>
-            <a href="#" className="transition-colors hover:text-gold-warm">
+            <a href="/regulamin" className="transition-colors hover:text-gold-warm">
               Regulamin
             </a>
           </div>
