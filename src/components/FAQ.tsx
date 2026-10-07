@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Plus } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
@@ -9,12 +9,12 @@ import { FAQ_ITEMS } from "@/lib/data";
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
+  const reducedMotion = useReducedMotion();
 
   return (
     <section id="faq" className="relative section-padding">
       <Container className="relative">
         <SectionHeading
-          eyebrow="FAQ"
           title={
             <>
               Najczęściej zadawane{" "}
@@ -47,7 +47,7 @@ export default function FAQ() {
                           : "border-white/10 text-gold-warm"
                       }`}
                     >
-                      <Plus className="h-4 w-4" />
+                      <Plus className="h-4 w-4" aria-hidden="true" />
                     </span>
                   </button>
                 </h3>
@@ -59,7 +59,7 @@ export default function FAQ() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={reducedMotion ? { duration: 0 } : { duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
                       <p className="pb-6 pr-12 text-sm leading-relaxed text-white/60 sm:text-base">

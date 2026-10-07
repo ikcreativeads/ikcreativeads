@@ -143,6 +143,11 @@ html {
     opacity: 1 !important;
     transform: none !important;
   }
+  .animate-float,
+  .animate-float-slow,
+  .animate-pulse-glow {
+    animation: none !important;
+  }
 }
 
 /* Shimmer background for buttons */
@@ -230,7 +235,10 @@ html {
 
 /* Focus visible accessibility */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
   border-radius: 4px;

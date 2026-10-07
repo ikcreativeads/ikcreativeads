@@ -15,7 +15,6 @@ export default function Services() {
       <section id="uslugi" className="relative section-padding">
         <Container className="relative">
           <SectionHeading
-            eyebrow="Nasze usługi"
             title={
               <>
                 Wszystko czego potrzebujesz,{" "}
@@ -36,7 +35,7 @@ export default function Services() {
                 >
                   <button
                     onClick={() => setSelected(service)}
-                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 p-8 text-left transition-all duration-300 hover:-translate-y-2 hover:border-gold/30 cursor-pointer"
+                    className="group relative flex h-full w-full flex-col overflow-hidden rounded-3xl border border-white/5 bg-charcoal-blue/30 p-8 text-left transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-2 hover:border-gold/30 cursor-pointer"
                   >
                     {/* Hover glow */}
                     <div
@@ -52,7 +51,7 @@ export default function Services() {
                       <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/5 transition-all duration-300 group-hover:border-gold/40 group-hover:bg-gold/10">
                         <Icon className="h-6 w-6 text-gold-warm" strokeWidth={1.75} />
                       </div>
-                      <ArrowUpRight className="h-5 w-5 text-white/20 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-gold-warm" />
+                      <ArrowUpRight className="h-5 w-5 text-white/20 transition-[transform,color] duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-gold-warm" aria-hidden="true" />
                     </div>
 
                     <h3 className="relative mt-6 font-display text-xl font-bold text-white">

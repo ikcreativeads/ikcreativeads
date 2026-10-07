@@ -127,7 +127,6 @@ export default function Pricing() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Cennik"
           title={
             <>
               Pakiety miesięczne{" "}

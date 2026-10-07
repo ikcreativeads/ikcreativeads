@@ -10,7 +10,6 @@ export default function Benefits() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Dlaczego video"
           title={
             <>
               Video, które{" "}

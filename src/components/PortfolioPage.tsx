@@ -312,7 +312,7 @@ export default function PortfolioPage() {
                           {item.title}
                         </h3>
                         <div className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
-                          <TrendingUp className="h-4 w-4 shrink-0" />
+                          <TrendingUp className="h-4 w-4 shrink-0" aria-hidden="true" />
                           {item.result}
                         </div>
                       </div>
@@ -349,8 +349,9 @@ export default function PortfolioPage() {
                 <button
                   onClick={() => setActiveEmbed(null)}
                   className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:text-[#D4A94B] z-10"
+                  aria-label="Zamknij wideo"
                 >
-                  <X size={18} />
+                  <X size={18} aria-hidden="true" />
                 </button>
                 <div
                   className="relative w-full overflow-hidden rounded-2xl border border-[#D4A94B]/20 shadow-[0_0_60px_rgba(212,169,75,0.2)]"

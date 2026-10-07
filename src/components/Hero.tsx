@@ -100,7 +100,7 @@ export default function Hero() {
 
         {/* Opis + CTA */}
         <div>
-          <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-white/45">
+          <p className="mb-7 max-w-[300px] text-sm leading-relaxed text-white/65">
             Rolki reklamowe, strony WWW i social media dla firm z Podkarpacia.
             Dostarczamy w&nbsp;48&nbsp;godzin.
           </p>
@@ -110,7 +110,7 @@ export default function Hero() {
               href="#portfolio"
               className="inline-flex items-center gap-2.5 rounded-full bg-[#D4A94B] px-6 py-3.5 text-sm font-semibold text-[#0e1624] transition-all hover:bg-[#E0B95C] active:scale-95"
             >
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0e1624]/20">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#0e1624]/20" aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </span>
               Zobacz portfolio
@@ -118,10 +118,10 @@ export default function Hero() {
             {/* Secondary CTA — wycena */}
             <a
               href="#kontakt"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/40 transition-colors hover:text-white"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/65 transition-colors hover:text-white"
             >
               Bezpłatna wycena
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           </div>
         </div>

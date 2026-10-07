@@ -46,7 +46,7 @@ export default function CTA() {
             {/* Left — text */}
             <div>
               <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#D4A94B]/30 bg-[#D4A94B]/8 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#D4A94B]">
-                <Sparkles className="h-3.5 w-3.5" />
+                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
                 Zacznij już dziś
               </span>
               <h2 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl mt-4">
@@ -64,7 +64,7 @@ export default function CTA() {
                   "Wycena dopasowana do Twojego budżetu",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-[#D4A94B] shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-[#D4A94B] shrink-0" aria-hidden="true" />
                     <span className="text-sm text-white/70">{item}</span>
                   </div>
                 ))}
@@ -72,10 +72,10 @@ export default function CTA() {
             </div>
 
             {/* Right — form */}
-            <div className="glass-strong rounded-3xl p-6 sm:p-8">
+            <div className="glass-strong rounded-3xl p-6 sm:p-8" aria-live="polite">
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center py-10 text-center gap-4">
-                  <CheckCircle2 className="h-16 w-16 text-[#D4A94B]" />
+                  <CheckCircle2 className="h-16 w-16 text-[#D4A94B]" aria-hidden="true" />
                   <h3 className="text-xl font-bold text-white">Wiadomość wysłana!</h3>
                   <p className="text-white/60 text-sm">Odezwiemy się do Ciebie w ciągu 24 godzin.</p>
                   <button
@@ -92,11 +92,14 @@ export default function CTA() {
                   </h3>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                    <label htmlFor="cta-name" className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Imię i nazwisko *
                     </label>
                     <input
+                      id="cta-name"
                       type="text"
+                      name="name"
+                      autoComplete="name"
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -106,11 +109,14 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                    <label htmlFor="cta-phone" className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Numer telefonu *
                     </label>
                     <input
+                      id="cta-phone"
                       type="tel"
+                      name="phone"
+                      autoComplete="tel"
                       required
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -120,11 +126,13 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                    <label htmlFor="cta-message" className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
                       Wiadomość
                     </label>
                     <textarea
+                      id="cta-message"
                       rows={3}
+                      name="message"
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Opisz czego potrzebujesz..."
@@ -145,13 +153,13 @@ export default function CTA() {
                   >
                     {status === "loading" ? (
                       <>
-                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                         Wysyłanie...
                       </>
                     ) : (
                       <>
                         Umów bezpłatną konsultację
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                       </>
                     )}
                   </button>
