@@ -294,6 +294,61 @@ export default function StronaInternetowaPage() {
           ))}
         </div>
 
+        {/* Portfolio stron */}
+        <div className="relative mb-10">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-white/10" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-[#0E1624] px-6 text-sm font-bold tracking-[0.2em] uppercase text-[#D4A94B]">
+              Nasze realizacje stron
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-20">
+          <a
+            href="https://jarchistudio.pl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="reveal group relative flex flex-col sm:flex-row overflow-hidden rounded-3xl border border-white/8 bg-[#162235]/60 hover:border-[#D4A94B]/30 transition-colors"
+          >
+            {/* Miniatura strony */}
+            <div className="relative w-full sm:w-[55%] shrink-0 overflow-hidden">
+              <img
+                src="/portfolio-jarchi-studio.jpg"
+                alt="Jarchi Studio — strona internetowa"
+                className="w-full h-64 sm:h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Browser chrome overlay */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#0E1624]/60 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#162235] to-transparent sm:hidden" />
+            </div>
+
+            {/* Info */}
+            <div className="flex flex-col justify-center p-7 sm:p-10">
+              <span className="mb-3 inline-block w-fit rounded-full border border-[#D4A94B]/30 bg-[#D4A94B]/8 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4A94B]">
+                Strona firmowa
+              </span>
+              <h3 className="text-2xl font-extrabold text-white mb-2">Jarchi Studio</h3>
+              <p className="text-sm text-white/50 leading-relaxed mb-5">
+                One-page dla pracowni projektowania wnętrz z Podkarpacia. Elegancki design dopasowany do marki premium — serif display, jasna paleta, galeria realizacji.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Next.js", "Tailwind CSS", "Vercel", "Responsywna", "SEO"].map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/40">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#D4A94B] group-hover:gap-3 transition-all">
+                Otwórz stronę
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </div>
+          </a>
+        </div>
+
         {/* Jak to działa */}
         <div className="relative mb-10">
           <div className="absolute inset-0 flex items-center">
