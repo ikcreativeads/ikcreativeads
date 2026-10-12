@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Regulamin",
   description: "Regulamin świadczenia usług przez IK Creative Ads.",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function RegulaminsPage() {

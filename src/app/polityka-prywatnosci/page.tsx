@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Polityka prywatności",
   description: "Polityka prywatności i ochrony danych osobowych IK Creative Ads.",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 export default function PolitykaPrywatnosci() {
