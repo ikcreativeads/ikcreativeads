@@ -251,6 +251,7 @@ export default function PortfolioPage() {
       {/* ── Grid ── */}
       <section className="section-padding">
         <Container>
+          <h2 className="sr-only">Nasze realizacje wideo</h2>
           {filtered.length === 0 ? (
             /* Stan pusty */
             <motion.div
@@ -322,6 +323,33 @@ export default function PortfolioPage() {
               </AnimatePresence>
             </div>
           )}
+        </Container>
+      </section>
+
+      {/* ── Opis realizacji ── */}
+      <section className="py-16 border-t border-white/6">
+        <Container>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Rolki reklamowe dla firm z Dębicy i Podkarpacia
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 text-white/60 leading-relaxed">
+            <div>
+              <p className="mb-4">
+                Tworzymy krótkie filmy reklamowe w formacie 9:16 dla firm z Dębicy, Mielca, Rzeszowa i całego Podkarpacia. Każda rolka to przemyślana produkcja — hook przyciągający uwagę w pierwszych 3 sekundach, profesjonalna muzyka i animowane napisy.
+              </p>
+              <p>
+                Nagrywamy u klientów na miejscu — w lokalu, biurze lub plenerze. Gotowy materiał dostarczamy w ciągu 48 godzin od sesji nagraniowej. Oferujemy rolki jednorazowe od 200 zł oraz pakiety miesięczne od 699 zł.
+              </p>
+            </div>
+            <div>
+              <p className="mb-4">
+                Obsługujemy firmy z wielu branż: barbershopy, salony beauty, salony paznokci, gabinety medycyny estetycznej, stomatologia, fitness, restauracje, mechanicy, detailery, hotele i inne.
+              </p>
+              <p>
+                Materiały optymalizujemy pod Instagram Reels, TikTok, YouTube Shorts i Facebook Reels. Na życzenie przygotowujemy wersje pod reklamy płatne Meta Ads z dopasowanym hookiem i CTA.
+              </p>
+            </div>
+          </div>
         </Container>
       </section>
 

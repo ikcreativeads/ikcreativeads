@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import PortfolioPage from "@/components/PortfolioPage";
 
 export const metadata: Metadata = {
-  title: "Portfolio Rolek Reklamowych Dębica | Realizacje Video",
+  title: "Portfolio Video Reklamowe | Realizacje Dębica",
   description:
-    "Zobacz realizacje rolek reklamowych dla firm z Dębicy i Podkarpacia — barbershopy, salony beauty, mechanicy, detailing. Profesjonalne video na Instagram Reels, TikTok i YouTube Shorts.",
+    "Realizacje rolek reklamowych dla firm z Dębicy — barbershopy, beauty, mechanicy, detailery. Video na Instagram Reels, TikTok i YouTube Shorts. Sprawdź nasze prace.",
   alternates: {
     canonical: "https://ikcreativeads.pl/portfolio",
   },

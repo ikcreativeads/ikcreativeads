@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import StronaInternetowaPage from "@/components/StronaInternetowaPage";
 
 export const metadata: Metadata = {
-  title: "Strony Internetowe dla Firm | Tworzenie Stron WWW | IK Creative Ads",
+  title: "Tanie Strony Internetowe | Rzeszów, Dębica od 699 zł",
   description:
-    "Tworzenie stron internetowych dla firm — landing page od 699 zł, strona firmowa od 1299 zł, sklep internetowy od 2499 zł. Responsywne, szybkie, zoptymalizowane pod Google. Bezpłatna wycena.",
+    "Tanie strony internetowe dla firm — landing page od 699 zł, strona firmowa od 1299 zł, sklep od 2499 zł. Responsywne, szybkie, SEO. Rzeszów, Dębica, Podkarpacie.",
   alternates: {
     canonical: "https://ikcreativeads.pl/strony-internetowe",
   },
