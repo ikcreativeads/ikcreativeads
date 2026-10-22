@@ -1,23 +1,29 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { Play, CreditCard, Layers, Phone } from "lucide-react";
 
 type NavItem = {
   label: string;
   href: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number; style?: React.CSSProperties }>;
-  gold?: boolean;
 };
 
-const NAV: NavItem[] = [
-  { label: "Portfolio", href: "/portfolio", icon: Play },
-  { label: "Cennik",    href: "/cennik",    icon: CreditCard },
-  { label: "Usługi",   href: "/#uslugi",   icon: Layers },
-  { label: "Zadzwoń",  href: "tel:+48513818919", icon: Phone, gold: true },
-];
+// Strony, które mają sekcję #kontakt z formularzem (CTA)
+const PAGES_WITH_CONTACT = ["/", "/cennik", "/portfolio", "/strony-internetowe"];
 
 export default function MobileNav() {
+  const pathname = usePathname();
+  const contactHref = PAGES_WITH_CONTACT.includes(pathname) ? "#kontakt" : "/#kontakt";
+
+  const NAV: NavItem[] = [
+    { label: "Portfolio", href: "/portfolio", icon: Play },
+    { label: "Cennik",    href: "/cennik",    icon: CreditCard },
+    { label: "Usługi",   href: "/#uslugi",   icon: Layers },
+    { label: "Zadzwoń",  href: contactHref,  icon: Phone },
+  ];
+
   return (
     <nav
       aria-label="Nawigacja mobilna"
@@ -31,30 +37,35 @@ export default function MobileNav() {
       }}
     >
       <div className="flex h-16 items-stretch">
-        {NAV.map(({ label, href, icon: Icon, gold }) => (
-          <a
-            key={href}
-            href={href}
-            className="flex flex-1 flex-col items-center justify-center gap-1 transition-colors active:scale-95"
-            style={{ color: gold ? "#D4A94B" : "rgba(255,255,255,0.45)" }}
-          >
-            <Icon
-              className="h-5 w-5"
-              strokeWidth={gold ? 2 : 1.75}
-              style={
-                gold
-                  ? { filter: "drop-shadow(0 0 8px rgba(212,169,75,0.55))" }
-                  : undefined
-              }
-            />
-            <span
-              className="text-[10px] font-bold tracking-wide"
+        {NAV.map(({ label, href, icon: Icon }) => {
+          // Na złoto tylko podstrona, na której jesteśmy
+          const gold = href === pathname;
+          return (
+            <a
+              key={label}
+              href={href}
+              aria-current={gold ? "page" : undefined}
+              className="flex flex-1 flex-col items-center justify-center gap-1 transition-colors active:scale-95"
               style={{ color: gold ? "#D4A94B" : "rgba(255,255,255,0.45)" }}
             >
-              {label}
-            </span>
-          </a>
-        ))}
+              <Icon
+                className="h-5 w-5"
+                strokeWidth={gold ? 2 : 1.75}
+                style={
+                  gold
+                    ? { filter: "drop-shadow(0 0 8px rgba(212,169,75,0.55))" }
+                    : undefined
+                }
+              />
+              <span
+                className="text-[10px] font-bold tracking-wide"
+                style={{ color: gold ? "#D4A94B" : "rgba(255,255,255,0.45)" }}
+              >
+                {label}
+              </span>
+            </a>
+          );
+        })}
       </div>
     </nav>
   );

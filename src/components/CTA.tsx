@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, Loader2, Phone } from "lucide-react";
 import Container from "./ui/Container";
 
 export default function CTA() {
@@ -203,6 +203,14 @@ export default function CTA() {
                       </>
                     )}
                   </button>
+
+                  <a
+                    href="tel:+48513818919"
+                    className="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-[#D4A94B]/40 px-4 py-4 text-base font-bold text-[#D4A94B] transition-colors hover:bg-[#D4A94B]/10 active:bg-[#D4A94B]/20"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                    Zadzwoń: 513 818 919
+                  </a>
                 </form>
               )}
             </div>
