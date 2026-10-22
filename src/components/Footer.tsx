@@ -84,6 +84,14 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/rolki-dla-gabinetow"
+                  className="text-sm text-white/55 transition-colors hover:text-gold-warm"
+                >
+                  Rolki dla gabinetów
+                </a>
+              </li>
             </ul>
           </div>
 

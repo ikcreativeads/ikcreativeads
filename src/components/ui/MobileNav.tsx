@@ -11,7 +11,7 @@ type NavItem = {
 };
 
 // Strony, które mają sekcję #kontakt z formularzem (CTA)
-const PAGES_WITH_CONTACT = ["/", "/cennik", "/portfolio", "/strony-internetowe"];
+const PAGES_WITH_CONTACT = ["/", "/cennik", "/portfolio", "/strony-internetowe", "/rolki-dla-gabinetow"];
 
 export default function MobileNav() {
   const pathname = usePathname();

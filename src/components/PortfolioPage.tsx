@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, TrendingUp, ArrowLeft, VideoOff, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, X, ArrowLeft, Phone, ArrowRight, VideoOff, ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "./ui/Container";
 import YouTubeEmbed from "./ui/YouTubeEmbed";
 
@@ -10,7 +10,7 @@ import YouTubeEmbed from "./ui/YouTubeEmbed";
 const CATEGORIES = [
   { id: "wszystkie",   label: "Wszystkie" },
   { id: "barber",      label: "Barber" },
-  { id: "beauty",      label: "Beauty" },
+  { id: "beauty",      label: "Kosmetologia" },
   { id: "paznokcie",   label: "Paznokcie" },
   { id: "medycyna",    label: "Med. estetyczna" },
   { id: "stomatologia",label: "Stomatologia" },
@@ -51,63 +51,63 @@ const ALL_ITEMS: PortfolioItem[] = [
     title: "Bunkier Barber — Dębica",
     industry: "barber",
     client: "@bunkierbarber",
-    result: "Realizacja IK Creative Ads",
+    result: "Strzyżenie i klimat lokalu w jednej rolce",
   },
   {
-    id: "rolka-1",
-    type: "youtube",
-    videoId: "5wOorJQudec",
-    title: "Rolka Paznokcie",
-    industry: "paznokcie",
-    result: "Realizacja IK Creative Ads",
-  },
-  {
-    id: "rolka-2",
-    type: "youtube",
-    videoId: "wSRmpmSvSyQ",
-    title: "Rolka Mechanik",
-    industry: "mechanik",
-    result: "Realizacja IK Creative Ads",
-  },
-  {
-    id: "rolka-4",
+    id: "gabinet-zabieg",
     type: "youtube",
     videoId: "pVyOKWJKGrk",
-    title: "Rolka reklamowa",
+    title: "Gabinet kosmetologii — Mielec",
     industry: "beauty",
-    result: "Realizacja IK Creative Ads",
+    result: "Zabieg na twarz pokazany krok po kroku",
   },
   {
-    id: "rolka-5",
+    id: "gabinet-do-kamery",
     type: "youtube",
     videoId: "5brwXpCXqMY",
-    title: "Rolka reklamowa",
+    title: "Kosmetolog mówi do kamery — Mielec",
     industry: "beauty",
-    result: "Realizacja IK Creative Ads",
+    result: "Ekspertka zwraca się wprost do klientki",
   },
   {
-    id: "rolka-6",
+    id: "gabinet-wnetrze",
     type: "youtube",
     videoId: "_QUNaurcqYo",
-    title: "Rolka reklamowa",
+    title: "Wnętrze gabinetu — Mielec",
     industry: "beauty",
-    result: "Realizacja IK Creative Ads",
+    result: "Klientka widzi miejsce, zanim przyjdzie",
   },
   {
-    id: "rolka-7",
+    id: "gabinet-relaks",
     type: "youtube",
     videoId: "LAggsiBsjVg",
-    title: "Rolka reklamowa",
+    title: "Strefa komfortu — Mielec",
     industry: "beauty",
-    result: "Realizacja IK Creative Ads",
+    result: "Relaks w gabinecie zamiast cennika na plakacie",
   },
   {
-    id: "rolka-fizjo-1",
+    id: "paznokcie",
+    type: "youtube",
+    videoId: "5wOorJQudec",
+    title: "Stylizacja paznokci",
+    industry: "paznokcie",
+    result: "Detal pracy z bliska",
+  },
+  {
+    id: "fizjoterapeuta",
     type: "youtube",
     videoId: "mysvLz8oBBQ",
-    title: "Rolka reklamowa — Fizjoterapeuta",
+    title: "Fizjoterapeuta — terapia w gabinecie",
     industry: "fizjoterapeuta",
-    result: "Realizacja IK Creative Ads",
+    result: "Praca z pacjentem, bez pozowania",
+  },
+  {
+    id: "warsztat",
+    type: "youtube",
+    videoId: "wSRmpmSvSyQ",
+    title: "Warsztat samochodowy",
+    industry: "mechanik",
+    result: "Auto, ludzie i robota na hali",
   },
 ];
 
@@ -117,7 +117,7 @@ type ActiveEmbed = string;
 /* ─── Etykiety branż ─── */
 const INDUSTRY_LABELS: Record<Industry, string> = {
   barber:       "Barber",
-  beauty:       "Beauty",
+  beauty:       "Kosmetologia",
   paznokcie:    "Paznokcie",
   medycyna:     "Med. estetyczna",
   stomatologia: "Stomatologia",
@@ -144,6 +144,11 @@ export default function PortfolioPage() {
     if (!el) return;
     el.scrollBy({ left: dir === "right" ? 200 : -200, behavior: "smooth" });
   };
+
+  // Filtry tylko dla branż, w których są realizacje — puste kategorie zniechęcają
+  const visibleCategories = CATEGORIES.filter(
+    (cat) => cat.id === "wszystkie" || ALL_ITEMS.some((item) => item.industry === cat.id)
+  );
 
   const filtered =
     activeFilter === "wszystkie"
@@ -205,7 +210,7 @@ export default function PortfolioPage() {
             className="flex items-center gap-2 overflow-x-auto py-4 scrollbar-none w-full"
             style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
           >
-            {CATEGORIES.map((cat) => {
+            {visibleCategories.map((cat) => {
               const count =
                 cat.id === "wszystkie"
                   ? ALL_ITEMS.length
@@ -312,10 +317,9 @@ export default function PortfolioPage() {
                         <h3 className="font-bold text-white text-base leading-snug">
                           {item.title}
                         </h3>
-                        <div className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
-                          <TrendingUp className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        <p className="mt-1 text-sm text-white/70">
                           {item.result}
-                        </div>
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -323,6 +327,36 @@ export default function PortfolioPage() {
               </AnimatePresence>
             </div>
           )}
+        </Container>
+      </section>
+
+      {/* ── CTA pod realizacjami ── */}
+      <section className="pb-16">
+        <Container>
+          <div className="flex flex-col items-center gap-5 rounded-3xl border border-[#D4A94B]/20 bg-[#162235]/60 px-6 py-10 text-center">
+            <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
+              Chcesz taką rolkę dla swojej firmy?
+            </h2>
+            <p className="max-w-xl text-white/60">
+              Nagranie u Ciebie zajmuje około godziny, gotowy film dostajesz w 48 h. Pierwsza rolka 200 zł — jeśli uznasz, że nie robi roboty, nie płacisz.
+            </p>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <a
+                href="#kontakt"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] px-7 py-3.5 text-sm font-bold text-[#0E1624] transition-transform hover:scale-105"
+              >
+                Chcę taką rolkę
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="tel:+48513818919"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-[#D4A94B]/40 px-7 py-3.5 text-sm font-bold text-[#D4A94B] transition-colors hover:bg-[#D4A94B]/10"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Zadzwoń: 513 818 919
+              </a>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -390,6 +424,14 @@ export default function PortfolioPage() {
                     className="absolute inset-0 h-full w-full"
                   />
                 </div>
+                <a
+                  href="#kontakt"
+                  onClick={() => setActiveEmbed(null)}
+                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] px-6 py-3 text-sm font-bold text-[#0E1624]"
+                >
+                  Chcę taką rolkę
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
                 <p className="mt-3 text-center text-[11px] text-white/35">
                   ⚙️ Dla najlepszej jakości kliknij ikonę ustawień w odtwarzaczu i wybierz <span className="text-white/55">1080p</span>
                 </p>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, X, TrendingUp, ArrowRight } from "lucide-react";
+import { Play, X, ArrowRight } from "lucide-react";
 import Container from "./ui/Container";
 import SectionHeading from "./ui/SectionHeading";
 import YouTubeEmbed from "./ui/YouTubeEmbed";
@@ -20,18 +20,18 @@ const VIDEO_ITEMS: VideoItem[] = [
   {
     id: "video-1",
     type: "youtube",
-    videoId: "5wOorJQudec",
-    title: "Rolka Paznokcie",
-    industry: "Paznokcie",
-    result: "Realizacja IK Creative Ads",
+    videoId: "pVyOKWJKGrk",
+    title: "Gabinet kosmetologii — Mielec",
+    industry: "Kosmetologia",
+    result: "Zabieg na twarz pokazany krok po kroku",
   },
   {
     id: "video-2",
     type: "youtube",
     videoId: "wSRmpmSvSyQ",
-    title: "Rolka Mechanik",
+    title: "Warsztat samochodowy",
     industry: "Mechanik",
-    result: "Realizacja IK Creative Ads",
+    result: "Auto, ludzie i robota na hali",
   },
   {
     id: "video-3",
@@ -39,7 +39,7 @@ const VIDEO_ITEMS: VideoItem[] = [
     videoId: "xMOYd-LQYSU",
     title: "Bunkier Barber — Dębica",
     industry: "Barber",
-    result: "Realizacja IK Creative Ads",
+    result: "Strzyżenie i klimat lokalu w jednej rolce",
   },
 ];
 
@@ -85,10 +85,7 @@ function VideoCard({
             {video.industry}
           </span>
           <h3 className="font-bold text-white text-base">{video.title}</h3>
-          <div className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-[#F6D98C]">
-            <TrendingUp className="h-4 w-4" aria-hidden="true" />
-            {video.result}
-          </div>
+          <p className="mt-1 text-sm text-white/70">{video.result}</p>
         </div>
       </div>
     </a>
@@ -195,6 +192,14 @@ export default function Portfolio() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
+
+          {/* Link do podstrony branżowej */}
+          <p className="mt-6 text-center text-sm text-white/55">
+            Prowadzisz gabinet kosmetologii albo fizjoterapii?{" "}
+            <a href="/rolki-dla-gabinetow" className="font-semibold text-[#D4A94B] hover:text-[#F6D98C]">
+              Zobacz rolki dla gabinetów →
+            </a>
+          </p>
         </Container>
       </section>
 
