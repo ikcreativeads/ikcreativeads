@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Regulamin",
   description: "Regulamin usług IK Creative Ads — rolki reklamowe, strony internetowe, social media. Zasady współpracy, płatności, terminy i prawa autorskie.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://ikcreativeads.pl/regulamin" },
+  alternates: { canonical: "https://www.ikcreativeads.pl/regulamin" },
 };
 
 export default function RegulaminsPage() {

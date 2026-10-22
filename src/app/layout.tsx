@@ -12,7 +12,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://ikcreativeads.pl";
+const siteUrl = "https://www.ikcreativeads.pl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Polityka prywatności",
   description: "Polityka prywatności IK Creative Ads — przetwarzanie danych osobowych, RODO, pliki cookie i bezpieczeństwo danych na ikcreativeads.pl.",
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://ikcreativeads.pl/polityka-prywatnosci" },
+  alternates: { canonical: "https://www.ikcreativeads.pl/polityka-prywatnosci" },
 };
 
 export default function PolitykaPrywatnosci() {

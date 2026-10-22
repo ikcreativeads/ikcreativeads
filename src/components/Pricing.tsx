@@ -97,7 +97,7 @@ function PlanCard({ plan, index }: { plan: typeof plans[number]; index: number }
       </ul>
 
       <a
-        href="#kontakt"
+        href={`/?pakiet=${encodeURIComponent(plan.name)}#kontakt`}
         className={`group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold transition-all duration-300 ${
           plan.highlight
             ? "bg-gradient-to-r from-[#D4A94B] to-[#F6D98C] text-[#0E1624] hover:shadow-[0_0_30px_rgba(212,169,75,0.4)] hover:scale-105"
@@ -113,7 +113,7 @@ function PlanCard({ plan, index }: { plan: typeof plans[number]; index: number }
 
 const bottomNotes = [
   "Realizacja do 48h",
-  "Pierwsza rolka z gwarancją satysfakcji",
+  "Pierwsza rolka 200 zł: nie robi roboty — nie płacisz",
   "Retusz i obróbka zdjęć zawsze w cenie",
 ];
 

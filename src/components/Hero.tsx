@@ -117,7 +117,7 @@ export default function Hero() {
             </a>
             {/* Secondary CTA — wycena */}
             <a
-              href="#kontakt"
+              href="/#kontakt"
               className="inline-flex items-center gap-2 text-sm font-medium text-white/65 transition-colors hover:text-white"
             >
               Bezpłatna wycena

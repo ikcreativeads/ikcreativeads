@@ -13,8 +13,8 @@ type NavItem = {
 const NAV: NavItem[] = [
   { label: "Portfolio", href: "/portfolio", icon: Play },
   { label: "Cennik",    href: "/cennik",    icon: CreditCard },
-  { label: "Usługi",   href: "#uslugi",    icon: Layers },
-  { label: "Kontakt",  href: "#kontakt",   icon: Phone, gold: true },
+  { label: "Usługi",   href: "/#uslugi",   icon: Layers },
+  { label: "Zadzwoń",  href: "tel:+48513818919", icon: Phone, gold: true },
 ];
 
 export default function MobileNav() {

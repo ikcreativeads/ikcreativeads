@@ -77,7 +77,7 @@ export default function Footer() {
               ].map((item) => (
                 <li key={item}>
                   <a
-                    href="#uslugi"
+                    href="/#uslugi"
                     className="text-sm text-white/55 transition-colors hover:text-gold-warm"
                   >
                     {item}

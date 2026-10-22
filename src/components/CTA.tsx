@@ -1,12 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import Container from "./ui/Container";
 
 export default function CTA() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", message: "", source: "" });
+  // Kontekst zapytania: podstrona, wybrany pakiet, UTM i referrer — trafia do Formspree razem z formularzem
+  const [context, setContext] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ctx: Record<string, string> = { page: window.location.pathname };
+    for (const key of ["pakiet", "utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
+      const value = params.get(key);
+      if (value) ctx[key] = value;
+    }
+    if (document.referrer && !document.referrer.includes(window.location.host)) {
+      ctx.referrer = document.referrer;
+    }
+    setContext(ctx);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,12 +35,15 @@ export default function CTA() {
           name: form.name,
           phone: form.phone,
           message: form.message,
+          source: form.source,
+          ...context,
+          _subject: `Nowe zapytanie${context.pakiet ? ` — pakiet ${context.pakiet}` : ""} (${context.page ?? "/"})`,
         }),
       });
 
       if (res.ok) {
         setStatus("success");
-        setForm({ name: "", phone: "", message: "" });
+        setForm({ name: "", phone: "", message: "", source: "" });
       } else {
         setStatus("error");
       }
@@ -61,7 +79,7 @@ export default function CTA() {
                 {[
                   "Bezpłatna konsultacja bez zobowiązań",
                   "Odpowiadamy w ciągu 24h",
-                  "Wycena dopasowana do Twojego budżetu",
+                  "Pierwsza rolka 200 zł: nie robi roboty — nie płacisz",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="h-5 w-5 text-[#D4A94B] shrink-0" aria-hidden="true" />
@@ -123,6 +141,28 @@ export default function CTA() {
                       placeholder="+48 000 000 000"
                       className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#D4A94B]/50 focus:outline-none focus:bg-white/8 transition-colors"
                     />
+                  </div>
+
+                  <div>
+                    <label htmlFor="cta-source" className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2">
+                      Skąd o nas wiesz?
+                    </label>
+                    <select
+                      id="cta-source"
+                      name="source"
+                      value={form.source}
+                      onChange={(e) => setForm({ ...form, source: e.target.value })}
+                      className="w-full rounded-xl border border-white/10 bg-[#162235] px-4 py-3 text-sm text-white focus:border-[#D4A94B]/50 focus:outline-none transition-colors"
+                    >
+                      <option value="">Wybierz (opcjonalnie)</option>
+                      <option>Google</option>
+                      <option>Instagram</option>
+                      <option>TikTok</option>
+                      <option>Facebook</option>
+                      <option>Polecenie</option>
+                      <option>Wiadomość od IK Creative Ads</option>
+                      <option>Inne</option>
+                    </select>
                   </div>
 
                   <div>
