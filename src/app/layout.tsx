@@ -4,6 +4,7 @@ import "./globals.css";
 import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
 import MobileNav from "@/components/ui/MobileNav";
+import { Analytics } from "@vercel/analytics/next";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin", "latin-ext"],
@@ -108,6 +109,8 @@ export default function RootLayout({
         <RevealObserver />
         {children}
         <MobileNav />
+        {/* Vercel Web Analytics — statystyki odwiedzin bez cookies */}
+        <Analytics />
       </body>
     </html>
   );

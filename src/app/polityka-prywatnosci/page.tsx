@@ -24,7 +24,7 @@ export default function PolitykaPrywatnosci() {
 
         <div className="prose prose-invert prose-gold max-w-3xl mx-auto">
           <h1 className="text-3xl font-extrabold text-white mb-2">Polityka prywatności</h1>
-          <p className="text-white/40 text-sm mb-10">Wersja z dnia 1 października 2026 r.</p>
+          <p className="text-white/40 text-sm mb-10">Wersja z dnia 22 października 2026 r.</p>
 
           <Section title="1. Administrator danych">
             <p>Administratorem Twoich danych osobowych jest <strong>IK Creative Ads</strong> z siedzibą w Dębicy (Podkarpacie), zwany dalej „Administratorem".</p>
@@ -36,8 +36,8 @@ export default function PolitykaPrywatnosci() {
             <ul>
               <li><strong>Dane kontaktowe</strong> (imię, e-mail, telefon, nazwa firmy) — w celu nawiązania i realizacji współpracy oraz komunikacji handlowej (podstawa: art. 6 ust. 1 lit. b i f RODO).</li>
               <li><strong>Dane do faktury</strong> (NIP, adres) — w celu wystawienia dokumentów rozliczeniowych i spełnienia obowiązków podatkowych (podstawa: art. 6 ust. 1 lit. c RODO).</li>
-              <li><strong>Dane z formularza kontaktowego</strong> — w celu udzielenia odpowiedzi na zapytanie (podstawa: art. 6 ust. 1 lit. f RODO).</li>
-              <li><strong>Dane analityczne</strong> (anonimowe statystyki odwiedzin) — w celu poprawy funkcjonowania strony (Vercel Analytics, bez plików cookie profilujących).</li>
+              <li><strong>Dane z formularza kontaktowego</strong> (imię, telefon, treść wiadomości, opcjonalnie informacja „skąd o nas wiesz”) wraz z adresem podstrony, z której wysłano formularz, i parametrami kampanii z adresu (UTM) — w celu udzielenia odpowiedzi na zapytanie i sprawdzenia, które kanały przyprowadzają klientów (podstawa: art. 6 ust. 1 lit. f RODO).</li>
+              <li><strong>Dane analityczne</strong> (zbiorcze statystyki odwiedzin: odwiedzane podstrony, strona odsyłająca, kraj, typ urządzenia i przeglądarki) — w celu poprawy funkcjonowania strony (Vercel Web Analytics; narzędzie nie używa plików cookie i nie służy do identyfikacji osób).</li>
             </ul>
           </Section>
 
@@ -52,11 +52,13 @@ export default function PolitykaPrywatnosci() {
           <Section title="4. Komu przekazujemy dane">
             <p>Dane mogą być przekazywane wyłącznie zaufanym podmiotom przetwarzającym, z którymi Administrator zawarł stosowne umowy:</p>
             <ul>
-              <li>dostawcy usług hostingowych i infrastruktury IT (Vercel Inc.),</li>
+              <li>dostawcy usług hostingowych, infrastruktury IT i statystyk odwiedzin (Vercel Inc.),</li>
+              <li>Formspree, Inc. — obsługa formularza kontaktowego (przekazanie wiadomości na naszą skrzynkę),</li>
               <li>operatorzy płatności elektronicznych,</li>
               <li>biuro rachunkowe (jeśli dotyczy),</li>
               <li>Google LLC — w zakresie usług Google Workspace (poczta elektroniczna).</li>
             </ul>
+            <p>Część z tych podmiotów ma siedzibę w USA. Przekazanie danych odbywa się na podstawie mechanizmów przewidzianych w RODO (np. decyzji Komisji Europejskiej w sprawie Data Privacy Framework lub standardowych klauzul umownych).</p>
             <p>Nie sprzedajemy ani nie udostępniamy danych osobowych podmiotom trzecim w celach marketingowych.</p>
           </Section>
 
@@ -76,6 +78,7 @@ export default function PolitykaPrywatnosci() {
 
           <Section title="6. Pliki cookie">
             <p>Strona ikcreativeads.pl nie wykorzystuje plików cookie w celach śledzenia ani profilowania. Używamy jedynie technicznych mechanizmów niezbędnych do prawidłowego działania strony (sesja, bezpieczeństwo).</p>
+            <p>Filmy w portfolio są osadzone z serwisu YouTube w trybie rozszerzonej prywatności (youtube-nocookie.com). Odtwarzacz wczytuje się dopiero po kliknięciu w film; od tego momentu YouTube (Google) może przetwarzać dane zgodnie ze swoją <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">polityką prywatności</a>.</p>
             <p>Strona korzysta z platformy <strong>Vercel</strong> (hosting), która może gromadzić anonimowe dane techniczne (adres IP, przeglądarka) w celu zapewnienia bezpieczeństwa i wydajności. Więcej: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">polityka prywatności Vercel</a>.</p>
           </Section>
 

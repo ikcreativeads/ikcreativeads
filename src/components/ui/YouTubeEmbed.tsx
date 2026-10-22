@@ -40,6 +40,8 @@ export default function YouTubeEmbed({
     if (!divRef.current || playerRef.current) return;
     playerRef.current = new window.YT.Player(divRef.current, {
       videoId,
+      // Domena bez ciasteczek śledzących YouTube (zgodnie z polityką prywatności)
+      host: "https://www.youtube-nocookie.com",
       playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
       events: {
         onReady: (e: any) => {
